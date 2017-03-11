@@ -1,4 +1,5 @@
 = NativeScript Brasil
+:hp-tags: NativeScript, Blog, Novidades
 
 === Comunidade brasileira sobre NativeScript.
 
@@ -12,4 +13,3 @@ https://www.youtube.com/channel/UChXJEo5jpog58CvymfAJgMQ[Youtube]
 
 https://github.com/NativeScriptBrasil[Github]
 
-:hp-tags: NativeScript, Blog, Novidades
