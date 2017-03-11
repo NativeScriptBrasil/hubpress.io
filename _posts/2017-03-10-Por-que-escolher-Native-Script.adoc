@@ -13,7 +13,7 @@ image::http://lrdnug.org/images/logos/telerik_new-logo.png[]
 Esse foi um dos motivos que me levou a escolher o *NativeScript* quando estava estudando sobre frameworks para desenvolvimento de aplicativos móveis: _Ser mantido pela Telerik_. Telerik é uma empresa búlgara criada em 2002 e se destaca por desenvolver ferramentas poderosas para desenvolvedores, como Fiddler, Telerik Reporting, JustCode, Kendo UI, entre outros). Ferramentas estas que não são acessíveis para todos, pois possuem licenças caríssimas, entretanto para o *NativeScript*, eles adotaram uma maneira de monetizar o negócio diferente, a exemplo do que vem fazendo a Microsoft com seus produtos, a Telerik oferece o *NativeScript* totalmente gratuito, e caso você desejar, pode contar com um suporte técnico da empresa e ferramentas exclusivas como o *NativeScript-UI* (componentes extras para interfaces) adquirindo uma licença premium.
 
 === 3: Web Skills: JavaScript e CSS
-image::http://3.bp.blogspot.com/-NzvC45rKt6Q/VmZtuVmpSWI/AAAAAAAAS3Q/6jftNZjrMYk/s1600/nativescript-loves-angular.png[]
+image::https://image.ibb.co/hcbXwF/Screenshot_90.png[]
 Ao iniciar um projeto em *NativeScript* você tem a opção de escolher 3 arquiteturas para o projeto: *JavaScript*, *TypeScript* ou *Angular2*. Além disso, você poderá contar com o *CSS* para a interface. Não são todas as propriedades do CSS que temos ao desenvolver para web, até por que não temos DOM para manipular já que são elementos puramente nativos, você pode acessar a lista completa https://docs.nativescript.org/ui/styling#supported-css-properties[clicando aqui]. De modo geral, você irá reaproveitar todo seu conhecimento em desenvolvimento para web, ao desenvolver com *NativeScript*.
 
 === 4: Multi-plataforma
@@ -28,10 +28,36 @@ As interfaces do *NativeScript* são escritas em XML, não temos HTML, não há 
 image::https://superdevresources.com/wp-content/uploads/2014/06/cross-platform-app-development-telerik-nativescript.png[]
 O *NativeScript* não compila nenhum código. O código que você escreve em JavaScript é entregue integralmente no dispositivo. O *NativeScript* lhe da acesso integral a VM JavaScript do dispositivo (V8 no android e JavaScriptCore no iOS). Por conta disso, desenvolver em *NativeScript* se torna muito mais atrativo, pois você tem um ambiente mais fluido, sem pausas para recompilar, e também graças ao *livesync* que você pode utilizar enquanto está desenvolvendo, onde atualiza automaticamente o aplicativo conforme os arquivos vão sendo alterados. Falarei mais sobre esse assunto em outra oportunidade.
 
-=== 7: 100% de acesso as API's nativas
+
+=== 7: Vasta opções de pacotes
+image::https://image.ibb.co/gHEViv/npmcocoapodgradle.png[]
+Você poderá utilizar a maioria dos pacotes NPM que você ja utiliza para desenvolver para web, também no *NativeScript* (desde que este não dependa de DOM). No momento em que escrevo esse artigo existem cerca de 466 pacotes exclusivos para *NativeScript* no https://www.npmjs.com/search?q=nativescript[repositório NPM]. E não é só isso, caso você 
+deseje, poderá utilizar também pacotes dos repositórios cocoapods e gradle, e reaproveitar pacotes nativos de cada plataforma, também no *NativeScript*. Isso é muito útil para quem ja desenvolve apps em JAVA ou Object-C e já tenha experiência com alguns pacotes em cada plataforma.
+
+=== 8: Depuração de Código
+image::https://i.ytimg.com/vi/KQHJewS3tqA/maxresdefault.jpg[]
+O *NativeScript* possui extensões para o Visual Studio Code, Web Storm para debugar o código durante o desenvolvimento. E na ultima atualização (versão 2.5.0) foi entregue suporte para utilizar o Chrome Developer Tools para debugar também. Isso tornará o ambiente de desenvolvimento mais produtivo.
+
+=== 9: 100% de acesso as API's nativas
 image::https://image.slidesharecdn.com/nativescriptlondonmobiledev-150109075452-conversion-gate02/95/native-script-by-sebastian-witalec-8-638.jpg?cb=1420811743[]
 Esse sem sombra de dúvidas é o que faz com que o *NativeScript* se destaque perante os concorrentes. Tanto no ReactNative como no Xamarin por exemplo, você tem acesso limitado as API's nativas, o que esses frameworks fazem é encapsular a API nativa, uma por uma, e te entregar o acesso atravéz o código o framework, como um atalho. No *NativeScript* isso não ocorre, você tem acesso integral a API do dispositivo, como uma ponte direta a engine. Você não precisa escrever JAVA ou Object-C, você tem acesso integral atravéz JavaScript. Outro ponto positivo em ter acesso direto a API do dispositivo, é em questão de atualizações. Se o Android lançar uma SDK nova por exemplo, você poderá utilizar sem maiores dificuldades, bastanto apenas atualizar sua suite de desenvolvimento, no caso do Xamarin ou ReactNative, você teria que esperar sair uma atualização do framework.
 
+=== 10: Atualizações frequentes, muita novidade
+image::http://www.heliosdesign.co.za/export/sites/helios/blog/images3/update-frequently.jpg[]
+Se você acompanhar o projeto no https://github.com/nativescript/[github] verá que a equipe de desenvolvimento não para. É atualização atraz de atualização, a versão https://www.nativescript.org/blog/nativescript-25-is-now-available[2.5.0] mal foi entregue, recheada de recursos novos e melhorias, e a Telerik já soltou notícias de um https://www.nativescript.org/blog/sneak-preview-of-nativescript-3.0[_major update_ para 3.0]. 
+
+=== Destaques da última versão
+
+* Suporte para o Chrome Developer Tools
+* Melhorias no CLI
+* Atualização na extesão para Visual Studio Code
+* Novos componentes no Telerik UI
+* https://webpack.github.io/[Suporte ao Webpack Module Bundler]
+
+=== O que vem por ai 
+Muito rumor ainda paira sobre a versão 3.0, mas a equipe Telerik já deixou deu algumas dicas de que vem coisa grande por ai. Estão reestruturando a arquitetura do NativeScript para torna-lo ainda mais rapido, em alguns testes https://www.nativescript.org/blog/sneak-preview-of-nativescript-3.0[resultaram em um ganho de performance de até 400%], e não é só isso, estão ampliando o acesso a as funcionalidades do Chrome Dev Tools, melhorias no minificador WebPack e um instalador novo para quem não se sentir confortavel em usar linha de comando.
+
+=== Conclusão
 
 
 
