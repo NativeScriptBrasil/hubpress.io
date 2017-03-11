@@ -10,7 +10,7 @@ Não poderia começar por outro ponto que não este. O *NativeScript* é totalme
 
 === 2: Mantido pela Telerik
 image::http://lrdnug.org/images/logos/telerik_new-logo.png[]
-Esse foi um dos motivos que me levou a escolher o *NativeScript* quando estava estudando sobre frameworks para desenvolvimento de aplicativos móveis: _Ser mantido pela Telerik_. Telerik é uma empresa búlgara criada em 2002 e se destaca por desenvolver ferramentas poderosas para desenvolvedores, como Fiddler, Telerik Reporting, JustCode, Kendo UI, entre outros). Ferramentas estas que não são acessíveis para todos, pois possuem licenças caríssimas, entretanto para o *NativeScript*, eles adotaram uma maneira de monetizar o negócio diferente, a exemplo do que vem fazendo a Microsoft com seus produtos, a Telerik oferece o *NativeScript* totalmente gratuito, e caso você desejar, pode contar com um suporte técnico da empresa e ferramentas exclusivas como o *NativeScript-UI* (componentes extras para interfaces) adquirindo uma licença premium.
+Esse foi um dos motivos que me levou a escolher o *NativeScript* quando estava estudando sobre frameworks para desenvolvimento de aplicativos móveis: _Ser mantido pela Telerik_. Telerik é uma empresa búlgara criada em 2002 e se destaca por desenvolver ferramentas poderosas para desenvolvedores, como Fiddler, Telerik Reporting, JustCode, Kendo UI, entre outros. Ferramentas estas que não são acessíveis para todos, pois possuem licenças caríssimas, entretanto para o *NativeScript*, eles adotaram uma maneira de monetizar o negócio diferente, a exemplo do que vem fazendo a Microsoft com seus produtos, a Telerik oferece o *NativeScript* totalmente gratuito, e caso você desejar, pode contar com um suporte técnico da empresa e ferramentas exclusivas como o *NativeScript-UI* (componentes extras para interfaces) adquirindo uma licença premium.
 
 === 3: Web Skills: JavaScript e CSS
 image::https://image.ibb.co/hcbXwF/Screenshot_90.png[]
@@ -18,11 +18,11 @@ Ao iniciar um projeto em *NativeScript* você tem a opção de escolher 3 arquit
 
 === 4: Multi-plataforma
 image::https://adtmag.com/~/media/ECG/redmondmag/Images/introimages/REDMackie0613AndroidiOS_v2.jpg[]
-Um dos slogan do *NativeScript* é _"write once run everywhere"_ (escreva uma vez, rode em qualquer lugar). Com o *NativeScript* você terá um unico projeto escrito em JavaScript servindo diferentes plataformas (Android e iOS). 
+Um dos slogans do *NativeScript* é _"write once, run everywhere"_ (escreva uma vez, rode em qualquer lugar). Com o *NativeScript* você terá um unico projeto escrito em JavaScript servindo diferentes plataformas (Android e iOS). 
 
 === 5: Componentes nativos
 image::http://www.hybridtonative.com/images/nativescript-theme.png[]
-As interfaces do *NativeScript* são escritas em XML, não temos HTML, não há DOM, o NativeScript entrega para você componentes realmente nativos.
+As interfaces do *NativeScript* são escritas em XML, não temos HTML, não há DOM, o NativeScript entrega para você componentes realmente nativos, por conta disso o ganho em performance é elevado em comparação a outros frameworks
 
 === 6: Sem compilação
 image::https://superdevresources.com/wp-content/uploads/2014/06/cross-platform-app-development-telerik-nativescript.png[]
