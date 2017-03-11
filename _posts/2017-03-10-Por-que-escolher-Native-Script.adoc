@@ -59,8 +59,8 @@ Muito rumor ainda paira sobre a versão 3.0, mas a equipe Telerik já deixou deu
 
 === Conclusão
 
-
-
+O objetivo desse artigo foi fazer um panorama sobre o NativeScript e seus benefícios. A curva de aprendizado é baixíssima, visto que você reaproveitará grande parte do seu conhecimento em desenvolvimento para Web. 
+Nas próximas semanas irei lançar conteúdos sobre o *NativeScript* e espero que possamos juntos enriquecer esse portal com material de qualidade para todos os níveis.
 
 
 
