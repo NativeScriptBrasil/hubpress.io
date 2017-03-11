@@ -50,8 +50,8 @@ Se você acompanhar o projeto no https://github.com/nativescript/[github] verá 
 
 * Suporte para o Chrome Developer Tools
 * Melhorias no CLI
-* Atualização na extesão para Visual Studio Code
-* Novos componentes no Telerik UI
+* Atualização na extensão para Visual Studio Code
+* http://www.telerik.com/nativescript-ui[Novos componentes no NativeScript UI]
 * https://webpack.github.io/[Suporte ao Webpack Module Bundler]
 
 === O que vem por ai 
