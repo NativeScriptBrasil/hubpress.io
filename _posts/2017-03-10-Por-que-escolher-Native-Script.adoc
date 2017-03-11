@@ -3,7 +3,7 @@
 :hp-alt-title: Por que escolher NativeScript?
 :hp-image: http://www.revista.espiritolivre.org/wp-content/uploads/2015/03/nativescript.png
 
-Apesar de novo, o framework vem demonstrando sua força a cada atualização. Nesse artigo demonstro algumas motivos de porque escolhe-lo.
+Apesar de novo, o http://nativescript.org/[framework] vem demonstrando sua força a cada atualização. Nesse artigo demonstro algumas motivos de porque escolhe-lo.
 
 === 1: Open Source
 Não poderia começar por outro ponto que não este. O *NativeScript* é totalmente open source, o repositório do projeto pode ser acessado atravéz o link https://github.com/NativeScript[]. O projeto possui uma comunidade muito ativa, por diversas vezes que precisei abrir uma issue, em poucas horas obtive respostas de membros da propria equipe do projeto, bem como demais usuários.
@@ -11,3 +11,10 @@ Não poderia começar por outro ponto que não este. O *NativeScript* é totalme
 === 2: Mantido pela Telerik
 image::http://lrdnug.org/images/logos/telerik_new-logo.png[]
 Esse foi um dos motivos que me levou a escolher o *NativeScript* quando estava estudando sobre frameworks para desenvolvimento de aplicativos móveis: _Ser mantido pela Telerik_. Telerik é uma empresa búlgara criada em 2002 e se destaca por desenvolver ferramentas poderosas para desenvolvedores, como Fiddler, Telerik Reporting, JustCode, Kendo UI, entre outros). Ferramentas estas que não são acessíveis para todos, pois possuem licenças caríssimas, entretanto para o *NativeScript*, eles adotaram uma maneira de monetizar o negócio diferente, a exemplo do que vem fazendo a Microsoft com seus produtos, a Telerik oferece o *NativeScript* totalmente gratuito, e caso você desejar, pode contar com um suporte técnico da empresa e ferramentas exclusivas como o *NativeScript-UI* (componentes para interfaces) adquirindo uma licença premium.
+
+=== 3: Totalmente em JavaScript
+image::http://3.bp.blogspot.com/-NzvC45rKt6Q/VmZtuVmpSWI/AAAAAAAAS3Q/6jftNZjrMYk/s1600/nativescript-loves-angular.png[]
+Ao iniciar um projeto em *NativeScript* você tem a opção de escolher 3 arquiteturas para o projeto: *JavaScript*, *TypeScript* ou *Angular2*. Você irá reaproveitar todo seu conhecimento em desenvolvimento para web, ao desenvolver com *NativeScript*.
+
+
+
