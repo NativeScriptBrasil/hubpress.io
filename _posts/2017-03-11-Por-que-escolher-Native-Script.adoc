@@ -1,7 +1,7 @@
 = 10 motivos para optar por NativeScript
 :hp-tags: Blog
 :hp-alt-title: Por que escolher NativeScript?
-:hp-image: http://www.revista.espiritolivre.org/wp-content/uploads/2015/03/nativescript.png
+:hp-image: https://www.brainvire.com/wp-content/uploads/NativeScript-2.0-Developing-Native-Mobile-Apps-with-Angular-2-JavaScript-Framework.jpg
 
 Apesar de novo, o http://nativescript.org/[framework] vem demonstrando sua força a cada atualização. Nesse artigo demonstro algumas motivos de porque escolhe-lo.
 
