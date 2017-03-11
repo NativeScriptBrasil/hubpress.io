@@ -2,9 +2,9 @@
 
 === Comunidade brasileira sobre NativeScript.
 
-Grupo criado com o intuito de reunir artigos, materiais e projetos sobre NativeScript para a comunicade de desenvolvedores brasileiros.
+Grupo criado com o intuito de reunir artigos, materiais e projetos sobre NativeScript para a comunicade de desenvolvedores brasileiros. 
 
-Acompanhe-nos nas redes sociais:
+Em breve novidades, acompanhe-nos nas redes sociais:
 
 https://www.facebook.com/groups/nativescriptbrasil/?ref=br_rs[Facebook]
 
