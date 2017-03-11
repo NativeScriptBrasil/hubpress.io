@@ -2,9 +2,38 @@
   "meta": {
     "username": "nativescriptbrasil",
     "repositoryName": "nativescriptbrasil.github.io",
-    "branch": "master"
+    "branch": "master",
+    "cname": ""
   },
   "theme": {
-    "name": "Casper"
+    "name": "casper"
+  },
+  "urls": {
+    "site": "https://nativescriptbrasil.github.io",
+    "hubpress": "https://nativescriptbrasil.github.io",
+    "theme": "//nativescriptbrasil.github.io/themes/casper",
+    "images": "https://nativescriptbrasil.github.io/images"
+  },
+  "site": {
+    "title": "NativeScript Brasil",
+    "description": "Comunidade brasileira sobre NativeScript",
+    "logo": "",
+    "cover": "",
+    "delay": "",
+    "postsPerPage": "",
+    "googleAnalytics": "",
+    "disqus": ""
+  },
+  "socialnetwork": {
+    "email": "",
+    "github": "",
+    "twitter": "",
+    "facebook": "",
+    "googleplus": "",
+    "instagram": "",
+    "pinterest": "",
+    "flickr": "",
+    "linkedin": "",
+    "stackoverflow": ""
   }
 }
