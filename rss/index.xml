@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[NativeScript Brasil]]></title><description><![CDATA[Comunidade brasileira sobre NativeScript]]></description><link>https://nativescriptbrasil.github.io</link><generator>RSS for Node</generator><lastBuildDate>Sat, 11 Mar 2017 05:16:02 GMT</lastBuildDate><atom:link href="https://nativescriptbrasil.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[10 motivos para optar por NativeScript]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[NativeScript Brasil]]></title><description><![CDATA[Comunidade brasileira sobre NativeScript]]></description><link>https://nativescriptbrasil.github.io</link><generator>RSS for Node</generator><lastBuildDate>Sat, 11 Mar 2017 05:23:36 GMT</lastBuildDate><atom:link href="https://nativescriptbrasil.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[10 motivos para optar por NativeScript]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>Apesar de novo, o <a href="http://nativescript.org/">framework</a> vem demonstrando sua força a cada atualização. Nesse artigo demonstro algumas motivos de porque escolhe-lo.</p>
@@ -19,7 +19,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Esse foi um dos motivos que me levou a escolher o <strong>NativeScript</strong> quando estava estudando sobre frameworks para desenvolvimento de aplicativos móveis: <em>Ser mantido pela Telerik</em>. Telerik é uma empresa búlgara criada em 2002 e se destaca por desenvolver ferramentas poderosas para desenvolvedores, como Fiddler, Telerik Reporting, JustCode, Kendo UI, entre outros). Ferramentas estas que não são acessíveis para todos, pois possuem licenças caríssimas, entretanto para o <strong>NativeScript</strong>, eles adotaram uma maneira de monetizar o negócio diferente, a exemplo do que vem fazendo a Microsoft com seus produtos, a Telerik oferece o <strong>NativeScript</strong> totalmente gratuito, e caso você desejar, pode contar com um suporte técnico da empresa e ferramentas exclusivas como o <strong>NativeScript-UI</strong> (componentes extras para interfaces) adquirindo uma licença premium.</p>
+<p>Esse foi um dos motivos que me levou a escolher o <strong>NativeScript</strong> quando estava estudando sobre frameworks para desenvolvimento de aplicativos móveis: <em>Ser mantido pela Telerik</em>. Telerik é uma empresa búlgara criada em 2002 e se destaca por desenvolver ferramentas poderosas para desenvolvedores, como Fiddler, Telerik Reporting, JustCode, Kendo UI, entre outros. Ferramentas estas que não são acessíveis para todos, pois possuem licenças caríssimas, entretanto para o <strong>NativeScript</strong>, eles adotaram uma maneira de monetizar o negócio diferente, a exemplo do que vem fazendo a Microsoft com seus produtos, a Telerik oferece o <strong>NativeScript</strong> totalmente gratuito, e caso você desejar, pode contar com um suporte técnico da empresa e ferramentas exclusivas como o <strong>NativeScript-UI</strong> (componentes extras para interfaces) adquirindo uma licença premium.</p>
 </div>
 </div>
 <div class="sect2">
@@ -41,7 +41,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Um dos slogan do <strong>NativeScript</strong> é <em>"write once run everywhere"</em> (escreva uma vez, rode em qualquer lugar). Com o <strong>NativeScript</strong> você terá um unico projeto escrito em JavaScript servindo diferentes plataformas (Android e iOS).</p>
+<p>Um dos slogans do <strong>NativeScript</strong> é <em>"write once, run everywhere"</em> (escreva uma vez, rode em qualquer lugar). Com o <strong>NativeScript</strong> você terá um unico projeto escrito em JavaScript servindo diferentes plataformas (Android e iOS).</p>
 </div>
 </div>
 <div class="sect2">
@@ -52,7 +52,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>As interfaces do <strong>NativeScript</strong> são escritas em XML, não temos HTML, não há DOM, o NativeScript entrega para você componentes realmente nativos.</p>
+<p>As interfaces do <strong>NativeScript</strong> são escritas em XML, não temos HTML, não há DOM, o NativeScript entrega para você componentes realmente nativos, por conta disso o ganho em performance é elevado em comparação a outros frameworks</p>
 </div>
 </div>
 <div class="sect2">
