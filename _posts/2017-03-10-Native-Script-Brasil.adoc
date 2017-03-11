@@ -1,0 +1,3 @@
+= NativeScript Brasil
+
+Comunicade brasileira sobre NativeScript
