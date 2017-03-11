@@ -11,3 +11,5 @@ https://www.facebook.com/groups/nativescriptbrasil/?ref=br_rs[Facebook]
 https://www.youtube.com/channel/UChXJEo5jpog58CvymfAJgMQ[Youtube]
 
 https://github.com/NativeScriptBrasil[Github]
+
+:hp-tags: NativeScript, Blog, Novidades
