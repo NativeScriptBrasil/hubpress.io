@@ -1,3 +1,13 @@
 = NativeScript Brasil
 
-Comunicade brasileira sobre NativeScript
+=== Comunidade brasileira sobre NativeScript.
+
+Grupo criado com o intuito de reunir artigos, materiais e projetos sobre NativeScript para a comunicade de desenvolvedores brasileiros.
+
+Acompanhe-nos nas redes sociais:
+
+https://www.facebook.com/groups/nativescriptbrasil/?ref=br_rs[Facebook]
+
+https://www.youtube.com/channel/UChXJEo5jpog58CvymfAJgMQ[Youtube]
+
+https://github.com/NativeScriptBrasil[Github]
