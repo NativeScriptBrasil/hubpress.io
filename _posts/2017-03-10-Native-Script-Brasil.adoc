@@ -3,8 +3,6 @@
 
 === Comunidade brasileira sobre NativeScript.
 
-image::http://docs.nativescript.org/img/cli-getting-started/angular/chapter0/NativeScript_logo.png[NS, 40, 40]
-
 Grupo criado com o intuito de reunir artigos, materiais e projetos sobre NativeScript para a comunicade de desenvolvedores brasileiros. 
 
 Em breve novidades, acompanhe-nos nas redes sociais:
