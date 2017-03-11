@@ -55,7 +55,7 @@ Se você acompanhar o projeto no https://github.com/nativescript/[github] verá 
 * https://webpack.github.io/[Suporte ao Webpack Module Bundler]
 
 === O que vem por ai 
-Muito rumor ainda paira sobre a versão 3.0, mas a equipe Telerik já deixou deu algumas dicas de que vem coisa grande por ai. Estão reestruturando a arquitetura do NativeScript para torna-lo ainda mais rapido, em alguns testes https://www.nativescript.org/blog/sneak-preview-of-nativescript-3.0[resultaram em um ganho de performance de até 400%], e não é só isso, estão ampliando o acesso a as funcionalidades do Chrome Dev Tools, melhorias no minificador WebPack e um instalador novo para quem não se sentir confortavel em usar linha de comando.
+Muito rumor ainda paira sobre a versão 3.0, mas a equipe Telerik já deu algumas dicas de que vem coisa grande por ai. Estão reestruturando a arquitetura do NativeScript para torna-lo ainda mais rapido, em alguns testes https://www.nativescript.org/blog/sneak-preview-of-nativescript-3.0[resultaram em um ganho de performance de até 400%], e não é só isso, estão ampliando o acesso a as funcionalidades do Chrome Dev Tools, melhorias no minificador WebPack e um instalador novo para quem não se sentir confortavel em usar linha de comando.
 
 === Conclusão
 
