@@ -26,7 +26,7 @@ As interfaces do *NativeScript* são escritas em XML, não temos HTML, não há 
 
 === 6: Sem compilação
 image::https://superdevresources.com/wp-content/uploads/2014/06/cross-platform-app-development-telerik-nativescript.png[]
-O *NativeScript* não compila nenhum código. O código que você escreve em JavaScript é entregue integralmente no dispositivo. O *NativeScript* lhe da acesso integral a VM JavaScript do dispositivo (V8 no android e JavaScriptCore no iOS). Por conta disso, desenvolver em *NativeScript* se torna muito mais atrativo, pois você tem um ambiente mais fluido, sem pausas para recompilar, e também graças ao *livesync* que você pode utilizar enquanto está desenvolvendo, onde atualiza automaticamente o aplicativo conforme os arquivos vão sendo alterados. Falarei mais sobre esse assunto em outra oportunidade.
+O *NativeScript* não compila nenhum código. O código que você escreve em JavaScript é entregue integralmente no dispositivo. O *NativeScript* lhe da acesso integral a VM JavaScript do dispositivo (V8 no android e JavaScriptCore no iOS). Por conta disso, desenvolver em *NativeScript* se torna muito mais atrativo, pois você tem um ambiente mais fluido, sem pausas para recompilar, e também graças ao *livesync* que você pode utilizar enquanto está desenvolvendo, onde o aplicativo é atualizado automaticamente a cada mudança no código. Falarei mais sobre esse assunto em outra oportunidade.
 
 
 === 7: Vasta opções de pacotes
