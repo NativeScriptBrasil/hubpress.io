@@ -1,0 +1,105 @@
+= Imersão NativeScript #1 - Instalando o NativeScript 
+
+:hp-tags: Curso, NativeScript
+:hp-alt-title: instalando-nativescript
+
+Este é o primeiro de uma série de artigos que irei lançar nas próximas semanas onde irei abordar a criação de um projeto em NativeScript com Angular 2 desde o inicio, desde a instalação, criação, melhores práticas e muito mais.
+
+== Instalando NativeScript
+=== Windows 
+Se você estiver no Windows, você pode optar por utilizar o instalador oficial do *NativeScript* atravéz o seguinte link:
+https://docs.nativescript.org/start/ns-setup-installer
+
+O instalador irá realizar toda a configuração do ambiente necessária para desenvolvimento com Android (já que para desenvolver para iOS você precisa de um Mac). Se preferir, você pode acessar o guia avançado de instalação para Windows https://docs.nativescript.org/start/ns-setup-win[clicando aqui].
+
+=== Mac
+* Instale o Node:
+----
+brew install node
+----
+* Instale o NativeScript: 
+----
+npm install -g nativescript
+----
+
+* Configurar o Android e iOS SDK
+Agora precisamos configurar o ambiente para desenvolver para Android e iOS. Existe um script oficial da Telerik onde é realizada a instalação completa executando o seguinte comando:
+----
+ruby -e "$(curl -fsSL https://www.nativescript.org/setup/mac)"
+----
+O processo de instalação pode demorar alguns minutos, seja paciente. Se preferir, você pode consultar o https://docs.nativescript.org/start/ns-setup-os-x[manual de instalação completo para macOS clicando aqui.]
+
+=== Linux
+* Instale o node:
+----
+sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0 libstdc++6:i386
+----
+se o comando anterior estourar o erro `Unable to locate package lib32bz2-1.0`, então use este comando:
+----
+sudo apt-get install lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386
+----
+* Instale o G++ compiler:
+----
+sudo apt-get install g++
+----
+* Instale o JDK 8:
+----
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+----
+* Configure o JAVA:
+----
+sudo update-alternatives --config java
+----
+* Configure a variavel de ambiente *JAVA_HOME*
+----
+export JAVA_HOME=$(update-alternatives --query javac | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
+----
+* Instale o Android SDK
+Acesse o link abaixo, navegue até a seção de downloads para linux e realize o download:
+https://developer.android.com/sdk/index.html#Other
+
+* Configure a variavel de ambiente *ANDROID_HOME*
+Após a instalação do Android SDK, execute o comando:
+----
+export ANDROID_HOME=Path to Android installation directory
+----
+
+* Instale os pacotes necessarios para o ambiente de desenvolvimento Android:
+----
+sudo $ANDROID_HOME/tools/android update sdk --filter tools,platform-tools,android-23,build-tools-23.0.3,extra-android-m2repository,extra-google-m2repository,extra-android-support --all --no-ui
+----
+
+* Instale o CLI do NativeScript
+----
+sudo npm install nativescript -g --unsafe-perm
+----
+
+== Verificando o status da Instalação
+Após a instalação do NativeScript, você terá acesso ao CLI (command line interface). Confira se tudo esta certo executando o seguinte comando: 
+----
+tns doctor
+----
+o resultado deverá ser o seguinte:
+----
+λ tns doctor
+
+┌──────────────┬─────────────────┬────────────────┬──────────────────┐
+│ Component    │ Current version │ Latest version │ Information      │
+│ nativescript │ 2.5.1           │ 2.5.2          │ Update available │
+└──────────────┴─────────────────┴────────────────┴──────────────────┘
+----
+
+=== Próximos passos
+Agora que você tem um ambiente configurado, você está apto a desenvolver em NativeScript utilizando JavaScript, TypeScript ou Angular 2. 
+Na próximo artigo irei iniciar um projeto do zero em Angular 2 e iremos abordar diversos temas sobre o *NativeScript*.
+
+
+
+
+
+
+
+
