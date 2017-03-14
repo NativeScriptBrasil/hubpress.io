@@ -1,10 +1,38 @@
 {
   "meta": {
-    "username": "put your username here",
-    "repositoryName": "put your repository name here",
+    "username": "nativescriptbrasil",
+    "repositoryName": "nativescriptbrasil.github.io",
     "branch": "gh-pages"
   },
   "theme": {
     "name": "Casper"
-  }
+  },
+  "urls": {
+    "site": "https://nativescriptbrasil.github.io",
+    "hubpress": "https://nativescriptbrasil.github.io",
+    "theme": "//nativescriptbrasil.github.io/themes/casper",
+    "images": "https://nativescriptbrasil.github.io/images"
+  },
+  "site": {
+    "title": "NativeScript Brasil",
+    "description": "Comunidade brasileira sobre NativeScript",
+    "logo": "",
+    "cover": "",
+    "delay": "",
+    "postsPerPage": "",
+    "googleAnalytics": "",
+    "disqus": "nativescriptbrasil"
+  },
+  "socialnetwork": {
+    "email": "nativescriptbrasil@gmail.com",
+    "github": "http://github.com/NativeScriptBrasil",
+    "twitter": "",
+    "facebook": "https://www.facebook.com/groups/nativescriptbrasil/?ref=br_rs",
+    "googleplus": "",
+    "instagram": "",
+    "pinterest": "",
+    "flickr": "",
+    "linkedin": "",
+    "stackoverflow": ""
+}
 }
