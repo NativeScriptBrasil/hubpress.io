@@ -13,3 +13,36 @@ Se você estiver no Windows, você pode optar por utilizar o instalador oficial 
 https://docs.nativescript.org/start/ns-setup-installer
 
 O instalador irá realizar toda a configuração do ambiente necessária para desenvolvimento com Android (já que para desenvolver para iOS você precisa de um Mac).
+
+=== Mac
+* Instale o Node:
+----
+brew install node
+----
+* Instale o NativeScript: 
+----
+npm install -g nativescript
+----
+
+Após a instalação do NativeScript, você terá acesso ao CLI (command line interface). Confira se tudo esta certo executando o seguinte comando: `tns` 
+o resultado deverá ser o seguinte:
+----
+λ tns
+#NativeScript
+
+┌─────────┬─────────────────────────────────────────────────────────────────────┐
+│ Usage   │ Synopsis                                                            │
+│ General │ $ tns <Command> [Command Parameters] [--command <Options>]          │
+│ Alias   │ $ nativescript <Command> [Command Parameters] [--command <Options>] │
+└─────────┴─────────────────────────────────────────────────────────────────────┘
+----
+* Configurar o Android e iOS SDK
+Agora precisamos configurar o ambiente para desenvolver para Android e iOS. Existe um script oficial da Telerik onde é realizada a instalação completa executando o seguinte comando:
+----
+ruby -e "$(curl -fsSL https://www.nativescript.org/setup/mac)"
+----
+O processo de instalação pode demorar alguns minutos, seja paciente. Se preferir, você pode consultar o https://docs.nativescript.org/start/ns-setup-os-x[manual de instalação completo para macOS clicando aqui.]
+
+
+
+
