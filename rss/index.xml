@@ -1,4 +1,217 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[NativeScript Brasil]]></title><description><![CDATA[Comunidade brasileira sobre NativeScript]]></description><link>https://nativescriptbrasil.github.io</link><generator>RSS for Node</generator><lastBuildDate>Sat, 11 Mar 2017 05:30:20 GMT</lastBuildDate><atom:link href="https://nativescriptbrasil.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[10 motivos para optar por NativeScript]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[NativeScript Brasil]]></title><description><![CDATA[Comunidade brasileira sobre NativeScript]]></description><link>https://nativescriptbrasil.github.io</link><generator>RSS for Node</generator><lastBuildDate>Tue, 14 Mar 2017 19:58:01 GMT</lastBuildDate><atom:link href="https://nativescriptbrasil.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Imersão NativeScript #1 - Instalando o NativeScript]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Este é o primeiro de uma série de artigos que irei lançar nas próximas semanas onde irei abordar a criação de um projeto em NativeScript com Angular 2 desde o inicio, desde a instalação, criação, melhores práticas e muito mais.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instalando_nativescript">Instalando NativeScript</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_windows">Windows</h3>
+<div class="paragraph">
+<p>Se você estiver no Windows, você pode optar por utilizar o instalador oficial do <strong>NativeScript</strong> atravéz o seguinte link:
+<a href="https://docs.nativescript.org/start/ns-setup-installer" class="bare">https://docs.nativescript.org/start/ns-setup-installer</a></p>
+</div>
+<div class="paragraph">
+<p>O instalador irá realizar toda a configuração do ambiente necessária para desenvolvimento com Android (já que para desenvolver para iOS você precisa de um Mac). Se preferir, você pode acessar o guia avançado de instalação para Windows <a href="https://docs.nativescript.org/start/ns-setup-win">clicando aqui</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mac">Mac</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Instale o Node:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>brew install node</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Instale o NativeScript:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>npm install -g nativescript</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configurar o Android e iOS SDK
+Agora precisamos configurar o ambiente para desenvolver para Android e iOS. Existe um script oficial da Telerik onde é realizada a instalação completa executando o seguinte comando:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ruby -e "$(curl -fsSL https://www.nativescript.org/setup/mac)"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>O processo de instalação pode demorar alguns minutos, seja paciente. Se preferir, você pode consultar o <a href="https://docs.nativescript.org/start/ns-setup-os-x">manual de instalação completo para macOS clicando aqui.</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_linux">Linux</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Instale o node:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0 libstdc++6:i386</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>se o comando anterior estourar o erro <code>Unable to locate package lib32bz2-1.0</code>, então use este comando:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get install lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Instale o G++ compiler:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get install g++</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Instale o JDK 8:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configure o JAVA:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo update-alternatives --config java</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configure a variavel de ambiente <strong>JAVA_HOME</strong></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>export JAVA_HOME=$(update-alternatives --query javac | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Instale o Android SDK
+Acesse o link abaixo, navegue até a seção de downloads para linux e realize o download:
+<a href="https://developer.android.com/sdk/index.html#Other" class="bare">https://developer.android.com/sdk/index.html#Other</a></p>
+</li>
+<li>
+<p>Configure a variavel de ambiente <strong>ANDROID_HOME</strong>
+Após a instalação do Android SDK, execute o comando:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>export ANDROID_HOME=Path to Android installation directory</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Instale os pacotes necessarios para o ambiente de desenvolvimento Android:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo $ANDROID_HOME/tools/android update sdk --filter tools,platform-tools,android-23,build-tools-23.0.3,extra-android-m2repository,extra-google-m2repository,extra-android-support --all --no-ui</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Instale o CLI do NativeScript</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo npm install nativescript -g --unsafe-perm</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verificando_o_status_da_instala_o">Verificando o status da Instalação</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Após a instalação do NativeScript, você terá acesso ao CLI (command line interface). Confira se tudo esta certo executando o seguinte comando:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>tns doctor</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>o resultado deverá ser o seguinte:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>λ tns doctor
+
+┌──────────────┬─────────────────┬────────────────┬──────────────────┐
+│ Component    │ Current version │ Latest version │ Information      │
+│ nativescript │ 2.5.1           │ 2.5.2          │ Update available │
+└──────────────┴─────────────────┴────────────────┴──────────────────┘</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pr_ximos_passos">Próximos passos</h3>
+<div class="paragraph">
+<p>Agora que você tem um ambiente configurado, você está apto a desenvolver em NativeScript utilizando JavaScript, TypeScript ou Angular 2.
+Na próximo artigo irei iniciar um projeto do zero em Angular 2 e iremos abordar diversos temas sobre o <strong>NativeScript</strong>.</p>
+</div>
+</div>
+</div>
+</div>]]></description><link>https://nativescriptbrasil.github.io/2017/03/14/instalando-nativescript.html</link><guid isPermaLink="true">https://nativescriptbrasil.github.io/2017/03/14/instalando-nativescript.html</guid><category><![CDATA[Curso]]></category><category><![CDATA[ NativeScript]]></category><dc:creator><![CDATA[Douglas Franco]]></dc:creator><pubDate>Tue, 14 Mar 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[10 motivos para optar por NativeScript]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>Apesar de novo, o <a href="http://nativescript.org/">framework</a> vem demonstrando sua força a cada atualização. Nesse artigo demonstro algumas motivos de porque escolhe-lo.</p>
