@@ -22,7 +22,8 @@ brew install node
 npm install -g nativescript
 ----
 
-* Configurar o Android e iOS SDK
+* Configurar o Android e iOS SDK 
+
 Agora precisamos configurar o ambiente para desenvolver para Android e iOS. Existe um script oficial da Telerik onde é realizada a instalação completa executando o seguinte comando:
 ----
 ruby -e "$(curl -fsSL https://www.nativescript.org/setup/mac)"
