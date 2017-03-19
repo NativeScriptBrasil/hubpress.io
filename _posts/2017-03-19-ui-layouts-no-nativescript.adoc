@@ -1,0 +1,105 @@
+= UI Layouts no NativeScript
+
+:published_at: 2017-03-19
+:hp-tags: Layout, UI
+:hp-alt-title: ui-layouts-no-nativescript
+
+Se você está começando agora a mexer com NativeScript, é bom entender o que é possível fazer na parte visual, no UI do aplicativo.
+
+Aproveitando, não deixe de ler o primeiro artigo de https://nativescriptbrasil.github.io/2017/03/14/instalando-nativescript.html[Imersão NativeScript] que o Douglas está escrevendo.
+
+O NativeScript possui 6 tipos de layouts predefinidos que vai ajudar a organizar o visual do seu aplicativo. Esses layouts, na verdade, são marcações inseridas no html dos componentes de um aplicativo, e também podem ser criados usando os módulos de cada um diretamente no componente (no arquivo js ou ts).
+
+Aqui vou mostrar exemplos de escrita no HTML, que é mais comum.
+
+=== StackLayout
+Talvez esse seja o que layout que será mais usado. Ele faz o básico, que é colocar em pilha (stack) os elementos na view, ou seja, se você precisa mostrar elementos um embaixo do outro, como campos de formulário, esse é o layout que deverá ser utilizado. 
+
+Para quem vem do HTML e CSS, podemos dizer que é como deixar todos os elementos dentro do container com um *display:block*.
+É possível usar um atributo _orientation_ para organizar os elementos na horizontal. Basta atribuir o valor do atributo para _horizontal_.
+Um exemplo:
+
+----
+<StackLayout>
+    <Label text="Nome" />
+    <TextField hint="Digite o nome" />
+    <Label text="E-mail" />
+    <TextField hint="Digite o e-mail" />
+</StackLayout>
+----
+
+=== GridLayout
+Define áreas em colunas e linhas, ou seja, na tag GridLayout você define _columns_ e _rows_ em que os elementos internos irão se posicionar. Em cada elemento, é adicionado um atributo _col_ e/ou _row_ para deixar o elemento no lugar certo.
+
+----
+<GridLayout columns="60, auto" rows="auto, *" >
+    <Label text="Coluna 0 - Linha 0" col="0" />
+    <Label text="Coluna 1 - Linha 0" col="1" />
+    <Label text="Coluna 0 - Linha 1" col="0" row="1" />
+    <Label text="Coluna 1 - Linha 1" col="1" row="1" />
+</GridLayout>
+----
+
+=== WrapLayout
+Esse layout posiciona os elementos internos em colunas ou linhas, dependendo da definição da propriedade orientation, que pode ser _vertical_ ou _horizontal_, por padrão o valor é _horizontal_.
+
+O WrapLayout lembra um pouco o StackLayout, posicionando elementos na horizontal ou vertical. A diferença é que o StackLayout não faz quebras de linhas ou colunas. O WrapLayout, quando tem a propriedade _orientation_ como _horizontal_, quebra a linha quando o elemento não cabe mais na tela. Se a propriedade estiver com o valor _vertical_, ele cria colunas quando o elemento chega no final da tela.
+
+----
+<WrapLayout orientation="vertical">
+    <Label text="Elemento 1" />
+    <Label text="Elemento 2" />
+    <Label text="Elemento 3" />
+    <Label text="Elemento 4" />
+    <Label text="Elemento 5" />
+    <Label text="Elemento 6" />
+    <Label text="Elemento 7" />
+    <Label text="Elemento 8" />
+    <Label text="Elemento 9" />
+</WrapLayout>
+----
+
+=== DockLayout
+Esse layout posiciona os elementos internos nas bordas do DockLayout. Para isso, cada elemento recebe um atributo dock, que pode ter os valores _top, right, bottom e left_. Você pode adicionar um elemento sem o atributo dock e ele ficará posicionado no espaço que sobrar no meio do layout. 
+
+Caso queira que o último elemento ocupe todo o espaço restante, existe a propriedade _stretchLastChild_ para a tag DockLayout. Essa propriedade recebe um valor true/false. Se true, ele vai pegar o último elemento e esticar até ocupar o espaço vazio. 
+
+----
+<DockLayout stretchLastChild="true">
+    <Button dock="left" text="1" style="background-color: red; margin: 5;" />
+    <Button dock="top" text="2" style="background-color: green; margin: 5;" />
+    <Button dock="right" text="3" style="background-color: blue; margin: 5;" />
+    <Button dock="bottom" text="4" style="background-color: yellow; margin: 5;" />
+    <Button text="ocupa espaço" style="background-color: black; margin: 5;" />
+</DockLayout>
+----
+
+=== AbsoluteLayout
+Fazendo uma analogia com o CSS, é como fosse usado o *position:absolute* nos elementos internos. Bem simples, cada elemento interno recebe os atributos _left_ e _top_.
+
+----
+<AbsoluteLayout>
+    <Label text="Posição 0 left e 70 top" left="0" top="70" />
+    <Label text="Posição 10 left e 100 top" left="10" top="100" />
+</AbsoluteLayout>
+----
+
+=== FlexboxLayout
+O layout FlexboxLayout merece um post para falar sobre ele. Basicamente, ele funciona como o https://css-tricks.com/snippets/css/a-guide-to-flexbox/[CSS flexbox]. A documentação no NativeScript deixar até como referência https://css-tricks.com/snippets/css/a-guide-to-flexbox/[esse link], porque eles traduzem as propriedades do CSS para propriedades que funcionam em um código xml ou js do NativeScript.
+
+A tag FlexboxLayout é como se fosse um div com *display:flex*. Então, nos elementos internos, você precisa definir os espaços, as colunas, o posicionamento, como se fosse no css.
+
+== Propriedades
+Para finalizar, todas essas tags de layouts possuem algumas propriedades:
+
+* width
+* height
+* minWidth
+* minHeight
+* visibility
+* marginTop
+* marginRight
+* marginBottom
+* marginLeft
+* horizontalAlignment
+* verticalAlignment
