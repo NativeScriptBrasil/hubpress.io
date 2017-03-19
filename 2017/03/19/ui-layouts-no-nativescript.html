@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>UI Layouts no NativeScript</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://nativescriptbrasil.github.io/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//nativescriptbrasil.github.io/themes/casper/assets/css/screen.css?v=1489959821571" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="NativeScript Brasil" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="UI Layouts no NativeScript" />
+    <meta property="og:description" content="Se você está começando agora a mexer com NativeScript, é bom entender o que é possível fazer na parte visual, no UI do aplicativo. Aproveitando, não deixe de ler o primeiro artigo de Imersão NativeScript que o Douglas está escrevendo. O NativeScript possui 6 tipos de layouts predefinidos que vai" />
+    <meta property="og:url" content="https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html" />
+    <meta property="article:published_time" content="2017-03-19T00:00:00.000Z" />
+    <meta property="article:tag" content="Layout" />
+    <meta property="article:tag" content=" UI" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="UI Layouts no NativeScript" />
+    <meta name="twitter:description" content="Se você está começando agora a mexer com NativeScript, é bom entender o que é possível fazer na parte visual, no UI do aplicativo. Aproveitando, não deixe de ler o primeiro artigo de Imersão NativeScript que o Douglas está escrevendo. O NativeScript possui 6 tipos de layouts predefinidos que vai" />
+    <meta name="twitter:url" content="https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "NativeScript Brasil",
+    "author": {
+        "@type": "Person",
+        "name": "Alex Hiroshi",
+        "image": "https://avatars0.githubusercontent.com/u/240749?v=3",
+        "url": "https://nativescriptbrasil.github.io/author/alexhiroshi/",
+        "sameAs": "http://alexhiroshi.com.br"
+    },
+    "headline": "UI Layouts no NativeScript",
+    "url": "https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html",
+    "datePublished": "2017-03-19T00:00:00.000Z",
+    "keywords": "Layout,  UI",
+    "description": "Se você está começando agora a mexer com NativeScript, é bom entender o que é possível fazer na parte visual, no UI do aplicativo. Aproveitando, não deixe de ler o primeiro artigo de Imersão NativeScript que o Douglas está escrevendo. O NativeScript possui 6 tipos de layouts predefinidos que vai"
+}
+    </script>
+
+    <meta name="generator" content="HubPress" />
+    <link rel="alternate" type="application/rss+xml" title="NativeScript Brasil" href="https://nativescriptbrasil.github.io/rss/" />
+</head>
+<body class="post-template tag-Layout tag-UI nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-Layout tag-UI">
+
+        <header class="post-header">
+            <h1 class="post-title">UI Layouts no NativeScript</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2017-03-19">19 March 2017</time>  on <a href="https://nativescriptbrasil.github.io/tag/Layout/">Layout</a>, <a href="https://nativescriptbrasil.github.io/tag/UI/"> UI</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Se você está começando agora a mexer com NativeScript, é bom entender o que é possível fazer na parte visual, no UI do aplicativo.</p>
+</div>
+<div class="paragraph">
+<p>Aproveitando, não deixe de ler o primeiro artigo de <a href="https://nativescriptbrasil.github.io/2017/03/14/instalando-nativescript.html">Imersão NativeScript</a> que o Douglas está escrevendo.</p>
+</div>
+<div class="paragraph">
+<p>O NativeScript possui 6 tipos de layouts predefinidos que vai ajudar a organizar o visual do seu aplicativo. Esses layouts, na verdade, são marcações inseridas no html dos componentes de um aplicativo, e também podem ser criados usando os módulos de cada um diretamente no componente (no arquivo js ou ts).</p>
+</div>
+<div class="paragraph">
+<p>Aqui vou mostrar exemplos de escrita no HTML, que é mais comum.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stacklayout">StackLayout</h3>
+<div class="paragraph">
+<p>Talvez esse seja o que layout que será mais usado. Ele faz o básico, que é colocar em pilha (stack) os elementos na view, ou seja, se você precisa mostrar elementos um embaixo do outro, como campos de formulário, esse é o layout que deverá ser utilizado.</p>
+</div>
+<div class="paragraph">
+<p>Para quem vem do HTML e CSS, podemos dizer que é como deixar todos os elementos dentro do container com um <strong>display:block</strong>.
+É possível usar um atributo <em>orientation</em> para organizar os elementos na horizontal. Basta atribuir o valor do atributo para <em>horizontal</em>.
+Um exemplo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;StackLayout&gt;
+    &lt;Label text="Nome" /&gt;
+    &lt;TextField hint="Digite o nome" /&gt;
+    &lt;Label text="E-mail" /&gt;
+    &lt;TextField hint="Digite o e-mail" /&gt;
+&lt;/StackLayout&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gridlayout">GridLayout</h3>
+<div class="paragraph">
+<p>Define áreas em colunas e linhas, ou seja, na tag GridLayout você define <em>columns</em> e <em>rows</em> em que os elementos internos irão se posicionar. Em cada elemento, é adicionado um atributo <em>col</em> e/ou <em>row</em> para deixar o elemento no lugar certo.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;GridLayout columns="60, auto" rows="auto, *" &gt;
+    &lt;Label text="Coluna 0 - Linha 0" col="0" /&gt;
+    &lt;Label text="Coluna 1 - Linha 0" col="1" /&gt;
+    &lt;Label text="Coluna 0 - Linha 1" col="0" row="1" /&gt;
+    &lt;Label text="Coluna 1 - Linha 1" col="1" row="1" /&gt;
+&lt;/GridLayout&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_wraplayout">WrapLayout</h3>
+<div class="paragraph">
+<p>Esse layout posiciona os elementos internos em colunas ou linhas, dependendo da definição da propriedade orientation, que pode ser <em>vertical</em> ou <em>horizontal</em>, por padrão o valor é <em>horizontal</em>.</p>
+</div>
+<div class="paragraph">
+<p>O WrapLayout lembra um pouco o StackLayout, posicionando elementos na horizontal ou vertical. A diferença é que o StackLayout não faz quebras de linhas ou colunas. O WrapLayout, quando tem a propriedade <em>orientation</em> como <em>horizontal</em>, quebra a linha quando o elemento não cabe mais na tela. Se a propriedade estiver com o valor <em>vertical</em>, ele cria colunas quando o elemento chega no final da tela.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;WrapLayout orientation="vertical"&gt;
+    &lt;Label text="Elemento 1" /&gt;
+    &lt;Label text="Elemento 2" /&gt;
+    &lt;Label text="Elemento 3" /&gt;
+    &lt;Label text="Elemento 4" /&gt;
+    &lt;Label text="Elemento 5" /&gt;
+    &lt;Label text="Elemento 6" /&gt;
+    &lt;Label text="Elemento 7" /&gt;
+    &lt;Label text="Elemento 8" /&gt;
+    &lt;Label text="Elemento 9" /&gt;
+&lt;/WrapLayout&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_docklayout">DockLayout</h3>
+<div class="paragraph">
+<p>Esse layout posiciona os elementos internos nas bordas do DockLayout. Para isso, cada elemento recebe um atributo dock, que pode ter os valores <em>top, right, bottom e left</em>. Você pode adicionar um elemento sem o atributo dock e ele ficará posicionado no espaço que sobrar no meio do layout.</p>
+</div>
+<div class="paragraph">
+<p>Caso queira que o último elemento ocupe todo o espaço restante, existe a propriedade <em>stretchLastChild</em> para a tag DockLayout. Essa propriedade recebe um valor true/false. Se true, ele vai pegar o último elemento e esticar até ocupar o espaço vazio.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;DockLayout stretchLastChild="true"&gt;
+    &lt;Button dock="left" text="1" style="background-color: red; margin: 5;" /&gt;
+    &lt;Button dock="top" text="2" style="background-color: green; margin: 5;" /&gt;
+    &lt;Button dock="right" text="3" style="background-color: blue; margin: 5;" /&gt;
+    &lt;Button dock="bottom" text="4" style="background-color: yellow; margin: 5;" /&gt;
+    &lt;Button text="ocupa espaço" style="background-color: black; margin: 5;" /&gt;
+&lt;/DockLayout&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_absolutelayout">AbsoluteLayout</h3>
+<div class="paragraph">
+<p>Fazendo uma analogia com o CSS, é como fosse usado o <strong>position:absolute</strong> nos elementos internos. Bem simples, cada elemento interno recebe os atributos <em>left</em> e <em>top</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;AbsoluteLayout&gt;
+    &lt;Label text="Posição 0 left e 70 top" left="0" top="70" /&gt;
+    &lt;Label text="Posição 10 left e 100 top" left="10" top="100" /&gt;
+&lt;/AbsoluteLayout&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flexboxlayout">FlexboxLayout</h3>
+<div class="paragraph">
+<p>O layout FlexboxLayout merece um post para falar sobre ele. Basicamente, ele funciona como o <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS flexbox</a>. A documentação no NativeScript deixar até como referência <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">esse link</a>, porque eles traduzem as propriedades do CSS para propriedades que funcionam em um código xml ou js do NativeScript.</p>
+</div>
+<div class="paragraph">
+<p>A tag FlexboxLayout é como se fosse um div com <strong>display:flex</strong>. Então, nos elementos internos, você precisa definir os espaços, as colunas, o posicionamento, como se fosse no css.</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_propriedades">Propriedades</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Para finalizar, todas essas tags de layouts possuem algumas propriedades:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>width</p>
+</li>
+<li>
+<p>height</p>
+</li>
+<li>
+<p>minWidth</p>
+</li>
+<li>
+<p>minHeight</p>
+</li>
+<li>
+<p>visibility</p>
+</li>
+<li>
+<p>marginTop</p>
+</li>
+<li>
+<p>marginRight</p>
+</li>
+<li>
+<p>marginBottom</p>
+</li>
+<li>
+<p>marginLeft</p>
+</li>
+<li>
+<p>horizontalAlignment</p>
+</li>
+<li>
+<p>verticalAlignment</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="https://nativescriptbrasil.github.io/author/alexhiroshi/" style="background-image: url(https://avatars0.githubusercontent.com/u/240749?v&#x3D;3)"><span class="hidden">Alex Hiroshi's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="https://nativescriptbrasil.github.io/author/alexhiroshi/">Alex Hiroshi</a></h4>
+
+                    <p>Read <a href="https://nativescriptbrasil.github.io/author/alexhiroshi/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">São Paulo</span>
+                    <span class="author-link icon-link"><a href="http://alexhiroshi.com.br">http://alexhiroshi.com.br</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=UI%20Layouts%20no%20NativeScript&amp;url=https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+        <section class="post-comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+          var disqus_shortname = 'nativescriptbrasil'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </section>
+
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright">
+                <div>
+                    <a href="https://nativescriptbrasil.github.io">NativeScript Brasil</a> &copy; 2017 <br>
+                </div>
+                <div>
+                    <div style="float: left;">
+                        <a href="https://www.facebook.com/groups/nativescriptbrasil/">
+                            <img src="http://x-tremetan.com/images/facebook-128x128.png" style="width: 30px; height: 30px;" />
+                        </a>
+                    </div>
+                    <div style="vertical-align: middle; font-size: 16pt; padding-top: 5px;">
+                        <a href="https://www.facebook.com/groups/nativescriptbrasil/">
+                            Siga-nos no Facebook
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();
+      </script>
+       
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+    <script type="text/javascript" src="//nativescriptbrasil.github.io/themes/casper/assets/js/jquery.fitvids.js?v=1489959821571"></script>
+    <script type="text/javascript" src="//nativescriptbrasil.github.io/themes/casper/assets/js/index.js?v=1489959821571"></script>
+
+</body>
+</html>
