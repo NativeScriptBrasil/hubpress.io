@@ -1,6 +1,6 @@
 = Imersão NativeScript #2 - Criando um novo projeto NativeScript com Angular 2
 // See https://hubpress.gitbooks.io/hubpress-knowledgebase/content/ for information about the parameters.
-// :hp-image: /covers/cover.png
+:hp-image: https://www.brainvire.com/wp-content/uploads/NativeScript-2.0-Developing-Native-Mobile-Apps-with-Angular-2-JavaScript-Framework.jpg
 // :published_at: 2019-01-31
 :hp-tags: NativeScript, Angular2
 :hp-alt-title: criando novo projeto nativescript com angular 2
