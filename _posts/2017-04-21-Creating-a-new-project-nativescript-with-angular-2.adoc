@@ -1,0 +1,12 @@
+= Imersão NativeScript #1 - Criando um novo projeto NativeScript com Angular 2
+// See https://hubpress.gitbooks.io/hubpress-knowledgebase/content/ for information about the parameters.
+// :hp-image: /covers/cover.png
+// :published_at: 2019-01-31
+:hp-tags: NativeScript, Angular2
+:hp-alt-title: Creating a new project nativescript with angular 2
+
+Fala pessoal, compartilho com vocês uma video aula parte do curso NativeScript com Angular 2 que estou gravando.
+
+video::2yZAKoMIv3Y[youtube]
+
+O curso completo contará com mais 20 aulas, em breve trarei mais informações. Deixe seu comentario com sugestão, duvidas e temas que você gostaria que fosse discutido nas aulas.
