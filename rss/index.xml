@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[NativeScript Brasil]]></title><description><![CDATA[Comunidade brasileira sobre NativeScript]]></description><link>https://nativescriptbrasil.github.io</link><generator>RSS for Node</generator><lastBuildDate>Fri, 21 Apr 2017 16:01:51 GMT</lastBuildDate><atom:link href="https://nativescriptbrasil.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Imersão NativeScript #1 - Criando um novo projeto NativeScript com Angular 2]]></title><description><![CDATA[<div class="paragraph">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[NativeScript Brasil]]></title><description><![CDATA[Comunidade brasileira sobre NativeScript]]></description><link>https://nativescriptbrasil.github.io</link><generator>RSS for Node</generator><lastBuildDate>Fri, 21 Apr 2017 16:07:18 GMT</lastBuildDate><atom:link href="https://nativescriptbrasil.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Imersão NativeScript #2 - Criando um novo projeto NativeScript com Angular 2]]></title><description><![CDATA[<div class="paragraph">
 <p>Fala pessoal, compartilho com vocês uma video aula parte do curso NativeScript com Angular 2 que estou gravando.</p>
 </div>
 <div class="videoblock">
@@ -7,8 +7,172 @@
 </div>
 </div>
 <div class="paragraph">
-<p>O curso completo contará com mais 20 aulas, em breve trarei mais informações. Deixe seu comentario com sugestão, duvidas e temas que você gostaria que fosse discutido nas aulas.</p>
-</div>]]></description><link>https://nativescriptbrasil.github.io/2017/04/21/Creating-a-new-project-nativescript-with-angular-2.html</link><guid isPermaLink="true">https://nativescriptbrasil.github.io/2017/04/21/Creating-a-new-project-nativescript-with-angular-2.html</guid><category><![CDATA[NativeScript]]></category><category><![CDATA[ Angular2]]></category><dc:creator><![CDATA[Douglas Franco]]></dc:creator><pubDate>Fri, 21 Apr 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Imersão NativeScript #1 - Instalando o NativeScript]]></title><description><![CDATA[<div id="preamble">
+<p>O curso completo contará com aproximadamente 20 aulas, em breve trarei mais informações. Deixe seu comentario com sugestão, duvidas e temas que você gostaria que fosse discutido nas aulas.</p>
+</div>]]></description><link>https://nativescriptbrasil.github.io/2017/04/21/criando-novo-projeto-nativescript-com-angular-2.html</link><guid isPermaLink="true">https://nativescriptbrasil.github.io/2017/04/21/criando-novo-projeto-nativescript-com-angular-2.html</guid><category><![CDATA[NativeScript]]></category><category><![CDATA[ Angular2]]></category><dc:creator><![CDATA[Douglas Franco]]></dc:creator><pubDate>Fri, 21 Apr 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[UI Layouts no NativeScript]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Se você está começando agora a mexer com NativeScript, é bom entender o que é possível fazer na parte visual, no UI do aplicativo.</p>
+</div>
+<div class="paragraph">
+<p>Aproveitando, não deixe de ler o primeiro artigo de <a href="https://nativescriptbrasil.github.io/2017/03/14/instalando-nativescript.html">Imersão NativeScript</a> que o Douglas está escrevendo.</p>
+</div>
+<div class="paragraph">
+<p>O NativeScript possui 6 tipos de layouts predefinidos que vai ajudar a organizar o visual do seu aplicativo. Esses layouts, na verdade, são marcações inseridas no html dos componentes de um aplicativo, e também podem ser criados usando os módulos de cada um diretamente no componente (no arquivo js ou ts).</p>
+</div>
+<div class="paragraph">
+<p>Aqui vou mostrar exemplos de escrita no HTML, que é mais comum.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stacklayout">StackLayout</h3>
+<div class="paragraph">
+<p>Talvez esse seja o que layout que será mais usado. Ele faz o básico, que é colocar em pilha (stack) os elementos na view, ou seja, se você precisa mostrar elementos um embaixo do outro, como campos de formulário, esse é o layout que deverá ser utilizado.</p>
+</div>
+<div class="paragraph">
+<p>Para quem vem do HTML e CSS, podemos dizer que é como deixar todos os elementos dentro do container com um <strong>display:block</strong>.
+É possível usar um atributo <em>orientation</em> para organizar os elementos na horizontal. Basta atribuir o valor do atributo para <em>horizontal</em>.
+Um exemplo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;StackLayout&gt;
+    &lt;Label text="Nome" /&gt;
+    &lt;TextField hint="Digite o nome" /&gt;
+    &lt;Label text="E-mail" /&gt;
+    &lt;TextField hint="Digite o e-mail" /&gt;
+&lt;/StackLayout&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gridlayout">GridLayout</h3>
+<div class="paragraph">
+<p>Define áreas em colunas e linhas, ou seja, na tag GridLayout você define <em>columns</em> e <em>rows</em> em que os elementos internos irão se posicionar. Em cada elemento, é adicionado um atributo <em>col</em> e/ou <em>row</em> para deixar o elemento no lugar certo.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;GridLayout columns="60, auto" rows="auto, *" &gt;
+    &lt;Label text="Coluna 0 - Linha 0" col="0" /&gt;
+    &lt;Label text="Coluna 1 - Linha 0" col="1" /&gt;
+    &lt;Label text="Coluna 0 - Linha 1" col="0" row="1" /&gt;
+    &lt;Label text="Coluna 1 - Linha 1" col="1" row="1" /&gt;
+&lt;/GridLayout&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_wraplayout">WrapLayout</h3>
+<div class="paragraph">
+<p>Esse layout posiciona os elementos internos em colunas ou linhas, dependendo da definição da propriedade orientation, que pode ser <em>vertical</em> ou <em>horizontal</em>, por padrão o valor é <em>horizontal</em>.</p>
+</div>
+<div class="paragraph">
+<p>O WrapLayout lembra um pouco o StackLayout, posicionando elementos na horizontal ou vertical. A diferença é que o StackLayout não faz quebras de linhas ou colunas. O WrapLayout, quando tem a propriedade <em>orientation</em> como <em>horizontal</em>, quebra a linha quando o elemento não cabe mais na tela. Se a propriedade estiver com o valor <em>vertical</em>, ele cria colunas quando o elemento chega no final da tela.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;WrapLayout orientation="vertical"&gt;
+    &lt;Label text="Elemento 1" /&gt;
+    &lt;Label text="Elemento 2" /&gt;
+    &lt;Label text="Elemento 3" /&gt;
+    &lt;Label text="Elemento 4" /&gt;
+    &lt;Label text="Elemento 5" /&gt;
+    &lt;Label text="Elemento 6" /&gt;
+    &lt;Label text="Elemento 7" /&gt;
+    &lt;Label text="Elemento 8" /&gt;
+    &lt;Label text="Elemento 9" /&gt;
+&lt;/WrapLayout&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_docklayout">DockLayout</h3>
+<div class="paragraph">
+<p>Esse layout posiciona os elementos internos nas bordas do DockLayout. Para isso, cada elemento recebe um atributo dock, que pode ter os valores <em>top, right, bottom e left</em>. Você pode adicionar um elemento sem o atributo dock e ele ficará posicionado no espaço que sobrar no meio do layout.</p>
+</div>
+<div class="paragraph">
+<p>Caso queira que o último elemento ocupe todo o espaço restante, existe a propriedade <em>stretchLastChild</em> para a tag DockLayout. Essa propriedade recebe um valor true/false. Se true, ele vai pegar o último elemento e esticar até ocupar o espaço vazio.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;DockLayout stretchLastChild="true"&gt;
+    &lt;Button dock="left" text="1" style="background-color: red; margin: 5;" /&gt;
+    &lt;Button dock="top" text="2" style="background-color: green; margin: 5;" /&gt;
+    &lt;Button dock="right" text="3" style="background-color: blue; margin: 5;" /&gt;
+    &lt;Button dock="bottom" text="4" style="background-color: yellow; margin: 5;" /&gt;
+    &lt;Button text="ocupa espaço" style="background-color: black; margin: 5;" /&gt;
+&lt;/DockLayout&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_absolutelayout">AbsoluteLayout</h3>
+<div class="paragraph">
+<p>Fazendo uma analogia com o CSS, é como fosse usado o <strong>position:absolute</strong> nos elementos internos. Bem simples, cada elemento interno recebe os atributos <em>left</em> e <em>top</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;AbsoluteLayout&gt;
+    &lt;Label text="Posição 0 left e 70 top" left="0" top="70" /&gt;
+    &lt;Label text="Posição 10 left e 100 top" left="10" top="100" /&gt;
+&lt;/AbsoluteLayout&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flexboxlayout">FlexboxLayout</h3>
+<div class="paragraph">
+<p>O layout FlexboxLayout merece um post para falar sobre ele. Basicamente, ele funciona como o <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS flexbox</a>. A documentação no NativeScript deixar até como referência <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">esse link</a>, porque eles traduzem as propriedades do CSS para propriedades que funcionam em um código xml ou js do NativeScript.</p>
+</div>
+<div class="paragraph">
+<p>A tag FlexboxLayout é como se fosse um div com <strong>display:flex</strong>. Então, nos elementos internos, você precisa definir os espaços, as colunas, o posicionamento, como se fosse no css.</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_propriedades">Propriedades</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Para finalizar, todas essas tags de layouts possuem algumas propriedades:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>width</p>
+</li>
+<li>
+<p>height</p>
+</li>
+<li>
+<p>minWidth</p>
+</li>
+<li>
+<p>minHeight</p>
+</li>
+<li>
+<p>visibility</p>
+</li>
+<li>
+<p>marginTop</p>
+</li>
+<li>
+<p>marginRight</p>
+</li>
+<li>
+<p>marginBottom</p>
+</li>
+<li>
+<p>marginLeft</p>
+</li>
+<li>
+<p>horizontalAlignment</p>
+</li>
+<li>
+<p>verticalAlignment</p>
+</li>
+</ul>
+</div>
+</div>
+</div>]]></description><link>https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html</link><guid isPermaLink="true">https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html</guid><category><![CDATA[Layout]]></category><category><![CDATA[ UI]]></category><dc:creator><![CDATA[Alex Hiroshi]]></dc:creator><pubDate>Sun, 19 Mar 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Imersão NativeScript #1 - Instalando o NativeScript]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>Este é o primeiro de uma série de artigos que irei lançar nas próximas semanas onde irei abordar a criação de um projeto em NativeScript com Angular 2 desde o inicio, desde a instalação, criação, melhores práticas e muito mais.</p>
