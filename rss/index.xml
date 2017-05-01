@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[NativeScript Brasil]]></title><description><![CDATA[Comunidade brasileira sobre NativeScript]]></description><link>https://nativescriptbrasil.github.io</link><generator>RSS for Node</generator><lastBuildDate>Fri, 21 Apr 2017 16:13:25 GMT</lastBuildDate><atom:link href="https://nativescriptbrasil.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Imersão NativeScript #2 - Criando um novo projeto NativeScript com Angular 2]]></title><description><![CDATA[<div class="paragraph">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[NativeScript Brasil]]></title><description><![CDATA[Comunidade brasileira sobre NativeScript]]></description><link>https://nativescriptbrasil.github.io</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 May 2017 22:27:04 GMT</lastBuildDate><atom:link href="https://nativescriptbrasil.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Navegação com TabView]]></title><description><![CDATA[<div class="paragraph">
+<p>Hoje vou mostrar um pouco como fazer uma navegação usando TabView.
+TabView é aquela navegação por abas que no iOS, por padrão, fica na parte inferior da view, enquanto no Android fica na parte superior.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://docs.nativescript.org/angular/code-samples/ui/img/tab-view-image.png" alt="tab view image.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Aplicativos como o Twitter, Instagram e Facebook usam esse tipo de navegação. É bastante útil quando você quer uma navegação rápida e sempre visível.</p>
+</div>
+<div class="paragraph">
+<p>A TabView é criada usando as tags <strong>&lt;TabView&gt;&lt;/TabView&gt;</strong>. Dentro dela vão os itens, ou seja, as abas.
+Veja nesse exemplo como é simples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;TabView&gt;
+    &lt;StackLayout *tabItem="{title: 'Aba A', iconSource: '~/icone_a.png'}"&gt;
+        &lt;Label text="Conteúdo Aba A" color="green"&gt;&lt;/Label&gt;
+    &lt;/StackLayout&gt;
+    &lt;StackLayout *tabItem="{title: 'Aba B', iconSource: '~/icone_b.png'}"&gt;
+        &lt;Label text="Conteúdo Aba B" color="green"&gt;&lt;/Label&gt;
+    &lt;/StackLayout&gt;
+&lt;/TabView&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>O StackLayout foi só um exemplo, no lugar você pode usar qualquer um dos <a href="https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html">tipos de layouts do NativeScript</a>. O importante é ele ter o atributo que fala que aquele conteúdo é um item do TabView, o <em>tabItem</em>. Esse atributo recebe como valor um objeto, sendo que ele pode ter um título (<em>title</em>) e uma imagem (<em>iconSource</em>) como propriedades.
+A imagem referente ao iconSource só é exibida no iOS, no Android só o texto fica visível.</p>
+</div>
+<div class="paragraph">
+<p>Como podem ter percebido, a aba que vem selecionada por padrão, é sempre a primeira, o que não impede você mudar esse comportamento. Para fazer isso, é só usar o atributo <em>selectedIndex</em>, na tag &lt;TabView&gt;, especificando o index da aba que você quer que venha selecionada. Vale lembrar que o index começa no zero.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;TabView selectedIndex="1"&gt;
+  ...
+&lt;/TabView&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>E se você quiser mudar a cor de seleção da aba? Não é nada complicado, usando o atributo <em>selectedColor</em> você consegue fazer isso.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;TabView selectedIndex="1" selectedColor="#00FF00"&gt;
+  ...
+&lt;/TabView&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Você pode querer executar uma ação quando o usuário seleciona uma das abas. Isso é feito usando o evento <em>selectedIndexChanged</em>, também na &lt;TabView&gt;.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;TabView selectedIndex="1" selectedColor="#00FF00" (selectedIndexChanged)="alterarAba($event)"&gt;
+  ...
+&lt;/TabView&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>E no .ts:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public alterarAba(e: any) {
+    console.log(e);
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para páginas (abas) com pouco conteúdo, esse código simples pode ser facilmente usado. O problema é quando o conteúdo das páginas começam a ficar grades, a ter listas, formulários etc. Nesses casos, usar o TabView desse jeito vai deixar o seu código muito difícil de dar manutenções. Vai chegar uma hora que você não vai mais entender o funcionamento das coisas.
+O ideal é deixar a página com a tabView o mais simples possível e separar as páginas que vão abrir em componentes. Sabendo que no Angular você define um seletor quando cria um componente, a sua TabView poderia ficar assim:</p>
+</div>
+<div class="paragraph">
+<p>Arquivo aba-a.component.ts</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@Component({
+    selector: "aba-a",
+    moduleId: module.id,
+    templateUrl: "./aba-a.component.html",
+})
+export class AbaAComponent {}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Página com a tabView</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;TabView&gt;
+    &lt;StackLayout *tabItem="{title: 'Aba A'}"&gt;
+        &lt;aba-a&gt;&lt;/aba-a&gt;
+    &lt;/StackLayout&gt;
+    &lt;StackLayout *tabItem="{title: 'Aba B' }"&gt;
+        &lt;Label text="Conteúdo Aba B" color="green"&gt;&lt;/Label&gt;
+    &lt;/StackLayout&gt;
+&lt;/TabView&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Repare que eu posso tanto usar um conteúdo de compomente, como também posso usar o conteúdo direto na página, vai depender de como você quer organizar o seu código.
+Eu acho mais organizado deixar tudo em arquivos separados, mesmo quando o conteúdo é pequeno.</p>
+</div>
+<div class="paragraph">
+<p>Por hoje é isso. O código é simples mas bastante útil.</p>
+</div>]]></description><link>https://nativescriptbrasil.github.io/2017/05/01/navegacao-com-tabview.html</link><guid isPermaLink="true">https://nativescriptbrasil.github.io/2017/05/01/navegacao-com-tabview.html</guid><category><![CDATA[UI]]></category><category><![CDATA[ Navegação]]></category><category><![CDATA[ Layout]]></category><dc:creator><![CDATA[Alex Hiroshi]]></dc:creator><pubDate>Mon, 01 May 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Imersão NativeScript #2 - Criando um novo projeto NativeScript com Angular 2]]></title><description><![CDATA[<div class="paragraph">
 <p>Fala pessoal, compartilho com vocês uma video aula parte do curso NativeScript com Angular 2 que estou gravando.</p>
 </div>
 <div class="videoblock">
