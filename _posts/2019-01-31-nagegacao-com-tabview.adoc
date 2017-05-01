@@ -1,0 +1,82 @@
+= Navegaçao com TabView
+:published_at: 2019-01-31
+:hp-tags: UI, Navegaçao, Layout
+:hp-alt-title: nagegacao-com-tabview
+
+Hoje vou mostrar um pouco como fazer uma navegação usando TabView. 
+TabView é aquela navegação por abas que no iOS, por padrão, fica na parte inferior da view, enquanto no Android fica na parte superior.
+
+image::https://docs.nativescript.org/angular/code-samples/ui/img/tab-view-image.png[]
+Aplicativos como o Twitter, Instagram e Facebook usam esse tipo de navegação. É bastante útil quando você quer uma navegação rápida e sempre visível.
+
+A TabView é criada usando as tags *<TabView></TabView>*. Dentro dela vão os itens, ou seja, as abas.
+Veja nesse exemplo como é simples:
+
+----
+<TabView>
+    <StackLayout *tabItem="{title: 'Aba A', iconSource: '~/icone_a.png'}">
+        <Label text="Conteúdo Aba A" color="green"></Label>           
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Aba B', iconSource: '~/icone_b.png'}">
+        <Label text="Conteúdo Aba B" color="green"></Label>
+    </StackLayout>
+</TabView>
+----
+
+O StackLayout foi só um exemplo, no lugar você pode usar qualquer um dos https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html[tipos de layouts do NativeScript]. O importante é ele ter o atributo que fala que aquele conteúdo é um item do TabView, o _tabItem_. Esse atributo recebe como valor um objeto, sendo que ele pode ter um título e uma imagem como propriedades. 
+A imagem referente ao iconSource só é exibida no iOS, no Android só o texto fica visível.
+
+Como podem ter percebido, a aba que vem selecionada por padrão, é sempre a primeira, o que não impede você mudar esse comportamento. Para fazer isso, é só usar o atributo _selectedIndex_, na tag <TabView>, especificando o index da aba que você quer que venha selecionada.
+
+----
+<TabView selectedIndex="1">
+  ...
+</TabView>
+----
+E se você quiser mudar a cor de seleção da aba? Não é nada complicado, usando o atributo _selectedColor_ você consegue fazer isso.
+
+----
+<TabView selectedIndex="1" selectedColor="#00FF00">
+  ...
+</TabView>
+----
+
+Você pode querer executar uma ação quando o usuário seleciona uma das abas. Isso é feito usando o evento _selectedIndexChanged_, também na <TabView>.
+
+----
+<TabView selectedIndex="1" selectedColor="#00FF00" (selectedIndexChanged)="alterarAba($event)">
+  ...
+</TabView>
+----
+E no .ts:
+
+----
+public alterarAba(e: any) {
+    console.log(e);
+}
+----
+Para páginas (abas) com pouco conteúdo, esse código simples pode ser facilmente usado. O problema é quando o conteúdo das páginas começam a ficar grades, a ter listas, formulários etc. Nesses casos, usar o TabView desse jeito vai deixar o seu código muito difícil de fazer manutenções. Vai chegar uma hora que você não vai mais entender o funcionamento das coisas.
+O ideal é deixar a página com a tabView o mais simples possível e separar as páginas que vão abrir em componentes. Sabendo que no Angular você define um seletor quando cria um componente, a sua TabView poderia ficar assim:
+
+Arquivo aba-a.component.ts
+----
+@Component({
+    selector: "aba-a",
+    moduleId: module.id,
+    templateUrl: "./aba-a.component.html",
+})
+export class AbaAComponent {}
+----
+Página com a tabView
+----
+<TabView>
+    <StackLayout *tabItem="{title: 'Aba A'}">
+        <aba-a></aba-a>           
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Aba B' }">
+        <Label text="Conteúdo Aba B" color="green"></Label>
+    </StackLayout>
+</TabView>
+----
+Repare que eu posso tanto usar um conteúdo de compomente, como também posso usar o conteúdo direto na página, vai depender de como você quer organizar o seu código.
+Eu acho mais organizado deixar tudo em arquivos separados, mesmo quando o conteúdo é pequeno.
