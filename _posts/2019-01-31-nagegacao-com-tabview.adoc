@@ -33,7 +33,7 @@ Como podem ter percebido, a aba que vem selecionada por padrão, é sempre a pri
   ...
 </TabView>
 ----
-E se você quiser mudar a cor de seleção da aba? Não é nada complicado, usando o atributo _selectedColor_ você consegue fazer isso.
+E se você quiser mudar a cor de seleção da aba? Não é nada complicado, usando o atributo _selectedColor_ você consegue fazer isso.
 
 ----
 <TabView selectedIndex="1" selectedColor="#00FF00">
@@ -55,7 +55,7 @@ public alterarAba(e: any) {
     console.log(e);
 }
 ----
-Para páginas (abas) com pouco conteúdo, esse código simples pode ser facilmente usado. O problema é quando o conteúdo das páginas começam a ficar grades, a ter listas, formulários etc. Nesses casos, usar o TabView desse jeito vai deixar o seu código muito difícil de fazer manutenções. Vai chegar uma hora que você não vai mais entender o funcionamento das coisas.
+Para páginas (abas) com pouco conteúdo, esse código simples pode ser facilmente usado. O problema é quando o conteúdo das páginas começam a ficar grades, a ter listas, formulários etc. Nesses casos, usar o TabView desse jeito vai deixar o seu código muito difícil de dar manutenções. Vai chegar uma hora que você não vai mais entender o funcionamento das coisas.
 O ideal é deixar a página com a tabView o mais simples possível e separar as páginas que vão abrir em componentes. Sabendo que no Angular você define um seletor quando cria um componente, a sua TabView poderia ficar assim:
 
 Arquivo aba-a.component.ts
@@ -80,3 +80,5 @@ Página com a tabView
 ----
 Repare que eu posso tanto usar um conteúdo de compomente, como também posso usar o conteúdo direto na página, vai depender de como você quer organizar o seu código.
 Eu acho mais organizado deixar tudo em arquivos separados, mesmo quando o conteúdo é pequeno.
+
+Por hoje é isso. O código é simples mas bastante útil.
