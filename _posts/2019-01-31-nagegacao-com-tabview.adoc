@@ -23,10 +23,10 @@ Veja nesse exemplo como é simples:
 </TabView>
 ----
 
-O StackLayout foi só um exemplo, no lugar você pode usar qualquer um dos https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html[tipos de layouts do NativeScript]. O importante é ele ter o atributo que fala que aquele conteúdo é um item do TabView, o _tabItem_. Esse atributo recebe como valor um objeto, sendo que ele pode ter um título e uma imagem como propriedades. 
+O StackLayout foi só um exemplo, no lugar você pode usar qualquer um dos https://nativescriptbrasil.github.io/2017/03/19/ui-layouts-no-nativescript.html[tipos de layouts do NativeScript]. O importante é ele ter o atributo que fala que aquele conteúdo é um item do TabView, o _tabItem_. Esse atributo recebe como valor um objeto, sendo que ele pode ter um título (_title_) e uma imagem (_iconSource_) como propriedades. 
 A imagem referente ao iconSource só é exibida no iOS, no Android só o texto fica visível.
 
-Como podem ter percebido, a aba que vem selecionada por padrão, é sempre a primeira, o que não impede você mudar esse comportamento. Para fazer isso, é só usar o atributo _selectedIndex_, na tag <TabView>, especificando o index da aba que você quer que venha selecionada.
+Como podem ter percebido, a aba que vem selecionada por padrão, é sempre a primeira, o que não impede você mudar esse comportamento. Para fazer isso, é só usar o atributo _selectedIndex_, na tag <TabView>, especificando o index da aba que você quer que venha selecionada. Vale lembrar que o index começa no zero.
 
 ----
 <TabView selectedIndex="1">
