@@ -1,0 +1,195 @@
+= Quão facil é criar um plugin para NativeScript
+
+:hp-tags: NativeScript, plugin
+:hp-alt-title: Quão Facil é criar um plugin para NativeScript
+
+É notório a crescente quantidade de plugins disponíveis para NativeScript desenvolvidos pela comunidade, e o motivo disso não é apenas a boa vontade e senso de contribuição por parte de quem desenvolve, e sim, inclusive, a **facilidade que é desenvolver um plugin para NativeScript**, principalmente depois da versão 3.0.
+
+Neste artigo, irei demonstrar como desenvolvi o **https://github.com/dzfweb/nativescript-emoji[NativeScript Emoji]**, meu primeiro  UI Plugin para NativeScript. Ao termino da leitura deste artigo, espero despertar em você o interesse em desenvolver também um plugin e contribuir para a comunidade de desenvolvedores NativeScript, quem ganha com isso somos nós mesmos.
+
+== Por onde começar?
+Não vou entrar em detalhes sobre toda a estrutura necessaria para desenvolver um plugin para NativeScript pois isso não vai ser necessário para este artigo. Vou demonstrar o basico que você precisa saber para começar, mas caso prefira, a documentação completa você pode acessar https://docs.nativescript.org/plugins/plugins[clicando aqui].
+
+A maneira mais facil de começar um plugin para NativeScript, é utilizando o  **https://github.com/NathanWalker/nativescript-plugin-seed[NativeScript Plugin Seed]**, criado por NathanWalker. Esta biblioteca fará todo o trabalho árduo de criação da estrutura de um plugin NativeScript, e isso é realmente incrível. Veja como é facil:
+
+. git clone https://github.com/NathanWalker/nativescript-plugin-seed.git myplugin
+. cd myplugin
+. npm run postclone
+. npm run setup
+
+Pronto, com apenas estas etapas você terá criado toda estrutura necessária para desenvolver, testar e publicar seu plugin, mas antes de por a mão na massa, vamos fazer uma breve introdução sobre o plugin que vamos desenvolver juntos neste artigo.
+
+== O plugin NativeScript Emoji
+O objetivo deste plugin é entregar um elemento para a interface para exibir Emojis de forma amigavel. A minha ideia inicial era ter um elemento TextView onde ao definir o valor unicode ou hexadecimal do emoji na propriedade correspondente:
+
+`<Emoji:Emoji icon="128514">` *exibir* :😂 
+ 
+O plugin faria a conversão para Emoji, e aqui eu deixo um destaque novamente para a comunidade NativeScript no Slack (se você ainda não participa, faça sua inscrição agora http://developer.telerik.com/wp-login.php?action=slack-invitation[clicando aqui]), que me fizeram uma excelente sugestão de substituir a propriedade unicode por um valor amigavel e mais facil de lembrar, ficando então:
+
+`<Emoji:Emoji name="joy">` *exibir* :😂 
+
+== Implementação para Android e iOS
+Agora que já temos a definição do plugin e a estrutura criada, é hora de por a mão na massa. A primeira coisa que precisamos fazer é definir a implementação comum entre as plataformas, sabemos que iremos ter uma propriedade **name** que servirá tanto para Android como para iOS, esta definição é feita no arquivo common que foi gerado na primeira etapa deste artigo.
+
+**emoji.common.ts**
+```
+import { View, Property } from "ui/core/view";
+
+export class EmojiCommon extends View {
+  name: string;
+}
+
+export const nameProperty = new Property<EmojiCommon, string>(
+  {
+    name: "name",
+    defaultValue: ""
+  });
+nameProperty.register(EmojiCommon);
+```
+Como se trata de um plugin para interface, precisamos extender a classe **View**. Os atributos do elemento que iremos criar, definimos criando um novo objeto do tipo **Property**, a propriedade **name** definimos o nome do atributo e o valor padrão, como o próprio nome sugere, definimos na propriedade **defaultValue**. Se o valor deste atributo fosse diferente do tipo **string**, que não é o nosso caso, seria necessário definir o valor para a propriedade **valueConverter**.
+
+A codificação dos emojis são distintas para cada plataforma, por tanto precisamos ter uma base de dados para armazenar esses valores para consultarmos durante a execução do plugin.
+
+**emoji.database.ts**
+```
+export class EmojiDatabase {
+    public static list(): Array<any> {
+      return [
+    {
+        "name": "FACE WITH TEARS OF JOY",
+        "unicode": "😂",
+        "hexcode": "1F602",
+        "codepoint": [
+            128514
+        ],
+        "shortname": "joy"
+    }];
+}
+```
+
+=== Implementação para Android
+Agora que ja temos os atributos do elemento que iremos criar, precisamos implementar o codigo responsável por gerar o elemento correspondente a cada plataforma. O NativeScript interpretará em tempo de execução o codigo específico para Android atravéz do seguinte arquivo.
+
+**emoji.android.ts**
+```
+import { nameProperty, EmojiCommon } from "./emoji.common";
+import { EmojiDatabase } from "./emoji.database";
+import * as utils from "tns-core-modules/utils/utils";
+declare var java: any;
+
+global.moduleMerge(EmojiCommon, exports);
+
+export class Emoji extends EmojiCommon {
+  [nameProperty.getDefault](): string {
+    return '';
+  }
+  [nameProperty.setNative](value: string) {
+    let emoji = EmojiDatabase.list().find((el) => el.shortname === value).codepoint[0];
+    this.nativeView.setText(new java.lang.String(java.lang.Character.toChars(emoji)));
+  }
+
+  private _android: android.widget.TextView;
+
+  get android() {
+    return this.nativeView;
+  }
+
+  public createNativeView() {
+    this._android = new android.widget.TextView(utils.ad.getApplicationContext());
+    return this._android;
+  }
+}
+```
+
+O primeiro passo é extender a classe common criada anteriormente. Por se tratar de um plugin para interface, é necessário implementarmos o método **createNativeView**, que fará com que o o NativeScript entenda que algum elemento tem de ser criado na View. No nosso caso criaremos um https://developer.android.com/reference/android/widget/TextView.html[TextView]. 
+
+E novamente aqui temos outra grande ajuda do framework, a equipe do NativeScript mapeou todas as propriedades e métodos nativos de cada plataforma e gerou as definições em TypeScript, o que nos da a possibilidade de navegar por todas estas definições nativas diretamente no editor.
+
+Temos que definir também o que o plugin fará quando receber o atributo **name**, isso é definido implementando o método *setNative*, que no nosso caso irá consultar o nome do emoji na base de dados, e com base no codigo correspondente, definira o valor para o TextView criado anteriormente. O metodo *getDefault* é para casos em que nenhum valor seja definido.
+
+=== Implementação para iOS
+Podemos copiar a mesma implementação feita para o Android, e alterar somente as partes onde é criado e definido o valor para o elemento nativo, que no caso do iOS será  o https://developer.apple.com/reference/uikit/uilabel[UILabel] ficando da seguinte maneira.
+
+**emoji.ios.ts**
+```
+import { nameProperty, EmojiCommon } from "./emoji.common";
+import { EmojiDatabase } from "./emoji.database";
+
+global.moduleMerge(EmojiCommon, exports);
+
+export class Emoji extends EmojiCommon {
+  [nameProperty.getDefault](): number {
+    return 0;
+  }
+  [nameProperty.setNative](value: string) {
+    let emoji = EmojiDatabase.list().find((el) => el.shortname === value).unicode;
+    let nsString = NSString.stringWithString(emoji);
+    this.nativeView.text = nsString;
+  }
+
+  private _ios: UILabel;
+
+  get ios() {
+    return this.nativeView;
+  }
+
+  public createNativeView() {
+    this._ios = UILabel.alloc().init();
+    return this._ios;
+  }
+}
+```
+
+Novamente aqui será possivel acessar a definição dos metodos nativos para iOS, no metodo *createNativeView* é criado um UILabel e no método *setNative* é definido o valor para o elemento criado.
+
+== Testando o plugin 
+Sim, terminamos a implementação do plugin e o que resta agora é apenas testarmos. Rapido não? Para testarmos precisamos adicionar o plugin ao projeto *demo* criado nas etapas iniciais deste artigo. Para isso, é necessário executar o comando:
+
+```
+npm run preparedemo
+```
+
+Adicionar a referencia do elemento no elemento *Page* do arquivo *main-page.xml*
+
+```
+xmlns:Emoji="nativescript-emoji"
+``` 
+
+e então adicionar o elemento no dentro do *StackLayout*
+
+```
+<Emoji:Emoji name="joy" />
+```
+
+Ficando da seguinte maneira.
+
+*main-page.xml*
+```
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:Emoji="nativescript-emoji" navigatingTo="navigatingTo" class="page">
+  
+    <Page.actionBar>
+        <ActionBar title="NativeScript Emoji" icon="" class="action-bar">
+        </ActionBar>
+    </Page.actionBar>
+    <StackLayout orientation="horizontal">
+        <Label text="I'm happy "> </Label>
+        <Emoji:Emoji name="joy" />
+        <Emoji:Emoji name="joy" />
+        <Emoji:Emoji name="joy" />
+    </StackLayout>
+</Page>
+```
+
+Agora resta executar o projeto de demonstração nos emuladores de cada plataforma executando os seguintes comandos.
+
+```
+nmm run demo.ios
+npm run demo.android
+```
+
+image:https://raw.githubusercontent.com/dzfweb/nativescript-emoji/master/emojiprintscreen.png[]
+
+== Conclusão
+Podemos ver como é facil e rapido desenvolver um plugin para NativeScript, destaco alguns pontos como a comunidade de desenvolvedores NativeScript que são bem participativos, a equipe da Telerik que a procura entregar a cada versão ferramentas que visão tornar nosso trabalho como desenvolvedor muito mais produtivo e lanço o convite para você desenvolvedor que está lendo este artigo. Você desenvolveu algo customizado em algum projeto? Tem alguma ideia sobre alguma ferramenta que possa ser util? Contribua conosco também.
+
+
