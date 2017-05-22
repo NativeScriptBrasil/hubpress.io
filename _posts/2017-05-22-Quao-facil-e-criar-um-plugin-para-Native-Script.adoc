@@ -1,0 +1,8 @@
+= Quão facil é criar um plugin para NativeScript
+
+Teste
+
+// :hp-image: /covers/cover.png
+
+:hp-tags: NativeScript, plugin
+:hp-alt-title: Quão Facil é criar um plugin para NativeScript
