@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Quão facil é criar um plugin para NativeScript</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://nativescriptbrasil.github.io/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//nativescriptbrasil.github.io/themes/casper/assets/css/screen.css?v=1495467300606" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://nativescriptbrasil.github.io/2017/05/22/Quao-Facil-e-criar-um-plugin-para-Native-Script.html" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="NativeScript Brasil" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Quão facil é criar um plugin para NativeScript" />
+    <meta property="og:description" content="É notório a crescente quantidade de plugins disponíveis para NativeScript desenvolvidos pela comunidade, e o motivo disso não é apenas a boa vontade e senso de contribuição por parte de quem desenvolve, e sim, inclusive, a facilidade que é desenvolver um plugin para NativeScript, principalmente depois da versão 3.0." />
+    <meta property="og:url" content="https://nativescriptbrasil.github.io/2017/05/22/Quao-Facil-e-criar-um-plugin-para-Native-Script.html" />
+    <meta property="article:published_time" content="2017-05-22T00:00:00.000Z" />
+    <meta property="article:tag" content="NativeScript" />
+    <meta property="article:tag" content=" plugin" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Quão facil é criar um plugin para NativeScript" />
+    <meta name="twitter:description" content="É notório a crescente quantidade de plugins disponíveis para NativeScript desenvolvidos pela comunidade, e o motivo disso não é apenas a boa vontade e senso de contribuição por parte de quem desenvolve, e sim, inclusive, a facilidade que é desenvolver um plugin para NativeScript, principalmente depois da versão 3.0." />
+    <meta name="twitter:url" content="https://nativescriptbrasil.github.io/2017/05/22/Quao-Facil-e-criar-um-plugin-para-Native-Script.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "NativeScript Brasil",
+    "author": {
+        "@type": "Person",
+        "name": "Douglas Franco",
+        "image": "https://avatars1.githubusercontent.com/u/10212321?v=3",
+        "url": "https://nativescriptbrasil.github.io/author/dzfweb/",
+        "sameAs": "http://www.dzfweb.com.br",
+        "description": "Software Developer"
+    },
+    "headline": "Quão facil é criar um plugin para NativeScript",
+    "url": "https://nativescriptbrasil.github.io/2017/05/22/Quao-Facil-e-criar-um-plugin-para-Native-Script.html",
+    "datePublished": "2017-05-22T00:00:00.000Z",
+    "keywords": "NativeScript,  plugin",
+    "description": "É notório a crescente quantidade de plugins disponíveis para NativeScript desenvolvidos pela comunidade, e o motivo disso não é apenas a boa vontade e senso de contribuição por parte de quem desenvolve, e sim, inclusive, a facilidade que é desenvolver um plugin para NativeScript, principalmente depois da versão 3.0."
+}
+    </script>
+
+    <meta name="generator" content="HubPress" />
+    <link rel="alternate" type="application/rss+xml" title="NativeScript Brasil" href="https://nativescriptbrasil.github.io/rss/" />
+</head>
+<body class="post-template tag-Native-Script tag-plugin nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-Native-Script tag-plugin">
+
+        <header class="post-header">
+            <h1 class="post-title">Quão facil é criar um plugin para NativeScript</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2017-05-22">22 May 2017</time>  on <a href="https://nativescriptbrasil.github.io/tag/Native-Script/">NativeScript</a>, <a href="https://nativescriptbrasil.github.io/tag/plugin/"> plugin</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>É notório a crescente quantidade de plugins disponíveis para NativeScript desenvolvidos pela comunidade, e o motivo disso não é apenas a boa vontade e senso de contribuição por parte de quem desenvolve, e sim, inclusive, a <strong>facilidade que é desenvolver um plugin para NativeScript</strong>, principalmente depois da versão 3.0.</p>
+</div>
+<div class="paragraph">
+<p>Neste artigo, irei demonstrar como desenvolvi o <strong><a href="https://github.com/dzfweb/nativescript-emoji">NativeScript Emoji</a></strong>, meu primeiro  UI Plugin para NativeScript. Ao termino da leitura deste artigo, espero despertar em você o interesse em desenvolver também um plugin e contribuir para a comunidade de desenvolvedores NativeScript, quem ganha com isso somos nós mesmos.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_por_onde_come_ar">Por onde começar?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Não vou entrar em detalhes sobre toda a estrutura necessaria para desenvolver um plugin para NativeScript pois isso não vai ser necessário para este artigo. Vou demonstrar o basico que você precisa saber para começar, mas caso prefira, a documentação completa você pode acessar <a href="https://docs.nativescript.org/plugins/plugins">clicando aqui</a>.</p>
+</div>
+<div class="paragraph">
+<p>A maneira mais facil de começar um plugin para NativeScript, é utilizando o  <strong><a href="https://github.com/NathanWalker/nativescript-plugin-seed">NativeScript Plugin Seed</a></strong>, criado por NathanWalker. Esta biblioteca fará todo o trabalho árduo de criação da estrutura de um plugin NativeScript, e isso é realmente incrível. Veja como é facil:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>git clone <a href="https://github.com/NathanWalker/nativescript-plugin-seed.git" class="bare">https://github.com/NathanWalker/nativescript-plugin-seed.git</a> myplugin</p>
+</li>
+<li>
+<p>cd myplugin</p>
+</li>
+<li>
+<p>npm run postclone</p>
+</li>
+<li>
+<p>npm run setup</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Pronto, com apenas estas etapas você terá criado toda estrutura necessária para desenvolver, testar e publicar seu plugin, mas antes de por a mão na massa, vamos fazer uma breve introdução sobre o plugin que vamos desenvolver juntos neste artigo.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_o_plugin_nativescript_emoji">O plugin NativeScript Emoji</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O objetivo deste plugin é entregar um elemento para a interface para exibir Emojis de forma amigavel. A minha ideia inicial era ter um elemento TextView onde ao definir o valor unicode ou hexadecimal do emoji na propriedade correspondente:</p>
+</div>
+<div class="paragraph">
+<p><code>&lt;Emoji:Emoji icon="128514"&gt;</code> <strong>exibir</strong> :😂</p>
+</div>
+<div class="paragraph">
+<p>O plugin faria a conversão para Emoji, e aqui eu deixo um destaque novamente para a comunidade NativeScript no Slack (se você ainda não participa, faça sua inscrição agora <a href="http://developer.telerik.com/wp-login.php?action=slack-invitation">clicando aqui</a>), que me fizeram uma excelente sugestão de substituir a propriedade unicode por um valor amigavel e mais facil de lembrar, ficando então:</p>
+</div>
+<div class="paragraph">
+<p><code>&lt;Emoji:Emoji name="joy"&gt;</code> <strong>exibir</strong> :😂</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementa_o_para_android_e_ios">Implementação para Android e iOS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Agora que já temos a definição do plugin e a estrutura criada, é hora de por a mão na massa. A primeira coisa que precisamos fazer é definir a implementação comum entre as plataformas, sabemos que iremos ter uma propriedade <strong>name</strong> que servirá tanto para Android como para iOS, esta definição é feita no arquivo common que foi gerado na primeira etapa deste artigo.</p>
+</div>
+<div class="paragraph">
+<p><strong>emoji.common.ts</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>import { View, Property } from "ui/core/view";
+
+export class EmojiCommon extends View {
+  name: string;
+}
+
+export const nameProperty = new Property&lt;EmojiCommon, string&gt;(
+  {
+    name: "name",
+    defaultValue: ""
+  });
+nameProperty.register(EmojiCommon);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Como se trata de um plugin para interface, precisamos extender a classe <strong>View</strong>. Os atributos do elemento que iremos criar, definimos criando um novo objeto do tipo <strong>Property</strong>, a propriedade <strong>name</strong> definimos o nome do atributo e o valor padrão, como o próprio nome sugere, definimos na propriedade <strong>defaultValue</strong>. Se o valor deste atributo fosse diferente do tipo <strong>string</strong>, que não é o nosso caso, seria necessário definir o valor para a propriedade <strong>valueConverter</strong>.</p>
+</div>
+<div class="paragraph">
+<p>A codificação dos emojis são distintas para cada plataforma, por tanto precisamos ter uma base de dados para armazenar esses valores para consultarmos durante a execução do plugin.</p>
+</div>
+<div class="paragraph">
+<p><strong>emoji.database.ts</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>export class EmojiDatabase {
+    public static list(): Array&lt;any&gt; {
+      return [
+    {
+        "name": "FACE WITH TEARS OF JOY",
+        "unicode": "😂",
+        "hexcode": "1F602",
+        "codepoint": [
+            128514
+        ],
+        "shortname": "joy"
+    }];
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementa_o_para_android">Implementação para Android</h3>
+<div class="paragraph">
+<p>Agora que ja temos os atributos do elemento que iremos criar, precisamos implementar o codigo responsável por gerar o elemento correspondente a cada plataforma. O NativeScript interpretará em tempo de execução o codigo específico para Android atravéz do seguinte arquivo.</p>
+</div>
+<div class="paragraph">
+<p><strong>emoji.android.ts</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>import { nameProperty, EmojiCommon } from "./emoji.common";
+import { EmojiDatabase } from "./emoji.database";
+import * as utils from "tns-core-modules/utils/utils";
+declare var java: any;
+
+global.moduleMerge(EmojiCommon, exports);
+
+export class Emoji extends EmojiCommon {
+  [nameProperty.getDefault](): string {
+    return '';
+  }
+  [nameProperty.setNative](value: string) {
+    let emoji = EmojiDatabase.list().find((el) =&gt; el.shortname === value).codepoint[0];
+    this.nativeView.setText(new java.lang.String(java.lang.Character.toChars(emoji)));
+  }
+
+  private _android: android.widget.TextView;
+
+  get android() {
+    return this.nativeView;
+  }
+
+  public createNativeView() {
+    this._android = new android.widget.TextView(utils.ad.getApplicationContext());
+    return this._android;
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>O primeiro passo é extender a classe common criada anteriormente. Por se tratar de um plugin para interface, é necessário implementarmos o método <strong>createNativeView</strong>, que fará com que o o NativeScript entenda que algum elemento tem de ser criado na View. No nosso caso criaremos um <a href="https://developer.android.com/reference/android/widget/TextView.html">TextView</a>.</p>
+</div>
+<div class="paragraph">
+<p>E novamente aqui temos outra grande ajuda do framework, a equipe do NativeScript mapeou todas as propriedades e métodos nativos de cada plataforma e gerou as definições em TypeScript, o que nos da a possibilidade de navegar por todas estas definições nativas diretamente no editor.</p>
+</div>
+<div class="paragraph">
+<p>Temos que definir também o que o plugin fará quando receber o atributo <strong>name</strong>, isso é definido implementando o método <strong>setNative</strong>, que no nosso caso irá consultar o nome do emoji na base de dados, e com base no codigo correspondente, definira o valor para o TextView criado anteriormente. O metodo <strong>getDefault</strong> é para casos em que nenhum valor seja definido.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementa_o_para_ios">Implementação para iOS</h3>
+<div class="paragraph">
+<p>Podemos copiar a mesma implementação feita para o Android, e alterar somente as partes onde é criado e definido o valor para o elemento nativo, que no caso do iOS será  o <a href="https://developer.apple.com/reference/uikit/uilabel">UILabel</a> ficando da seguinte maneira.</p>
+</div>
+<div class="paragraph">
+<p><strong>emoji.ios.ts</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>import { nameProperty, EmojiCommon } from "./emoji.common";
+import { EmojiDatabase } from "./emoji.database";
+
+global.moduleMerge(EmojiCommon, exports);
+
+export class Emoji extends EmojiCommon {
+  [nameProperty.getDefault](): number {
+    return 0;
+  }
+  [nameProperty.setNative](value: string) {
+    let emoji = EmojiDatabase.list().find((el) =&gt; el.shortname === value).unicode;
+    let nsString = NSString.stringWithString(emoji);
+    this.nativeView.text = nsString;
+  }
+
+  private _ios: UILabel;
+
+  get ios() {
+    return this.nativeView;
+  }
+
+  public createNativeView() {
+    this._ios = UILabel.alloc().init();
+    return this._ios;
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Novamente aqui será possivel acessar a definição dos metodos nativos para iOS, no metodo <strong>createNativeView</strong> é criado um UILabel e no método <strong>setNative</strong> é definido o valor para o elemento criado.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testando_o_plugin">Testando o plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sim, terminamos a implementação do plugin e o que resta agora é apenas testarmos. Rapido não? Para testarmos precisamos adicionar o plugin ao projeto <strong>demo</strong> criado nas etapas iniciais deste artigo. Para isso, é necessário executar o comando:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>npm run preparedemo</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Adicionar a referencia do elemento no elemento <strong>Page</strong> do arquivo <strong>main-page.xml</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>xmlns:Emoji="nativescript-emoji"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>e então adicionar o elemento no dentro do <strong>StackLayout</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;Emoji:Emoji name="joy" /&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ficando da seguinte maneira.</p>
+</div>
+<div class="paragraph">
+<p><strong>main-page.xml</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:Emoji="nativescript-emoji" navigatingTo="navigatingTo" class="page"&gt;
+
+    &lt;Page.actionBar&gt;
+        &lt;ActionBar title="NativeScript Emoji" icon="" class="action-bar"&gt;
+        &lt;/ActionBar&gt;
+    &lt;/Page.actionBar&gt;
+    &lt;StackLayout orientation="horizontal"&gt;
+        &lt;Label text="I'm happy "&gt; &lt;/Label&gt;
+        &lt;Emoji:Emoji name="joy" /&gt;
+        &lt;Emoji:Emoji name="joy" /&gt;
+        &lt;Emoji:Emoji name="joy" /&gt;
+    &lt;/StackLayout&gt;
+&lt;/Page&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Agora resta executar o projeto de demonstração nos emuladores de cada plataforma executando os seguintes comandos.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>nmm run demo.ios
+npm run demo.android</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="https://raw.githubusercontent.com/dzfweb/nativescript-emoji/master/emojiprintscreen.png" alt="emojiprintscreen.png"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclus_o">Conclusão</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Podemos ver como é facil e rapido desenvolver um plugin para NativeScript, destaco alguns pontos como a comunidade de desenvolvedores NativeScript que são bem participativos, a equipe da Telerik que a procura entregar a cada versão ferramentas que visão tornar nosso trabalho como desenvolvedor muito mais produtivo e lanço o convite para você desenvolvedor que está lendo este artigo. Você desenvolveu algo customizado em algum projeto? Tem alguma ideia sobre alguma ferramenta que possa ser util? Contribua conosco também.</p>
+</div>
+</div>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="https://nativescriptbrasil.github.io/author/dzfweb/" style="background-image: url(https://avatars1.githubusercontent.com/u/10212321?v&#x3D;3)"><span class="hidden">Douglas Franco's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="https://nativescriptbrasil.github.io/author/dzfweb/">Douglas Franco</a></h4>
+
+                    <p>Software Developer</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">São Paulo, Brazil</span>
+                    <span class="author-link icon-link"><a href="http://www.dzfweb.com.br">http://www.dzfweb.com.br</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Qu%C3%A3o%20facil%20%C3%A9%20criar%20um%20plugin%20para%20NativeScript&amp;url=https://nativescriptbrasil.github.io/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://nativescriptbrasil.github.io/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://nativescriptbrasil.github.io/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+        <section class="post-comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+          var disqus_shortname = 'nativescriptbrasil'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </section>
+
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright">
+                <div>
+                    <a href="https://nativescriptbrasil.github.io">NativeScript Brasil</a> &copy; 2017 <br>
+                </div>
+                <div>
+                    <div style="float: left;">
+                        <a href="https://www.facebook.com/groups/nativescriptbrasil/">
+                            <img src="http://x-tremetan.com/images/facebook-128x128.png" style="width: 30px; height: 30px;" />
+                        </a>
+                    </div>
+                    <div style="vertical-align: middle; font-size: 16pt; padding-top: 5px;">
+                        <a href="https://www.facebook.com/groups/nativescriptbrasil/">
+                            Siga-nos no Facebook
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();
+      </script>
+       
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+    <script type="text/javascript" src="//nativescriptbrasil.github.io/themes/casper/assets/js/jquery.fitvids.js?v=1495467300606"></script>
+    <script type="text/javascript" src="//nativescriptbrasil.github.io/themes/casper/assets/js/index.js?v=1495467300606"></script>
+
+</body>
+</html>
