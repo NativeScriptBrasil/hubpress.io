@@ -1,6 +1,7 @@
 = O que é NativeScript e a comparação com Xamarin, Ionic e React 
 
-:hp-alt-title: O que é NativeScript e a comparação com Xamarin, Ionic e React 
+:hp-alt-title: O que é NativeScript e a comparação com Xamarin, Ionic e React
+:hp-image: https://raw.githubusercontent.com/NativeScriptBrasil/nativescriptbrasil.github.io/master/images/Screenshot_38.png
 
 Video introdutório sobre NativeScript e as principais diferenças entre Xamarin, Ionic e React.
 
